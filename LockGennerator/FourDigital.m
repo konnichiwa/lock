@@ -71,6 +71,9 @@
     _numText.text=resutlStr;
 }
 - (IBAction)generatePress:(id)sender {
+    for (UIButton *btn in _numBtn) {
+        btn.enabled=NO;
+    }
     [self showRandum];
 }
 - (void)dealloc {

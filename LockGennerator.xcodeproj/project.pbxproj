@@ -143,7 +143,8 @@
 		0F94769616E7A9F900C4CFD7 /* al_btnZ.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94764D16E7A9F900C4CFD7 /* al_btnZ.png */; };
 		0F94769716E7A9F900C4CFD7 /* al_btnZ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94764E16E7A9F900C4CFD7 /* al_btnZ@2x.png */; };
 		0F94769816E7A9F900C4CFD7 /* Lock-Generator_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94764F16E7A9F900C4CFD7 /* Lock-Generator_03.png */; };
-		0F94769A16E7AABA00C4CFD7 /* IntelliLock Alphanumeric.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94769916E7AABA00C4CFD7 /* IntelliLock Alphanumeric.png */; };
+		0F94769A16E7AABA00C4CFD7 /* g.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94769916E7AABA00C4CFD7 /* g.png */; };
+		8CD717CC16E88C220086D6DD /* AlphaNum_iphone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -293,7 +294,8 @@
 		0F94764D16E7A9F900C4CFD7 /* al_btnZ.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = al_btnZ.png; sourceTree = "<group>"; };
 		0F94764E16E7A9F900C4CFD7 /* al_btnZ@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "al_btnZ@2x.png"; sourceTree = "<group>"; };
 		0F94764F16E7A9F900C4CFD7 /* Lock-Generator_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lock-Generator_03.png"; sourceTree = "<group>"; };
-		0F94769916E7AABA00C4CFD7 /* IntelliLock Alphanumeric.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IntelliLock Alphanumeric.png"; sourceTree = "<group>"; };
+		0F94769916E7AABA00C4CFD7 /* g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g.png; sourceTree = "<group>"; };
+		8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlphaNum_iphone5.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,8 +343,6 @@
 			isa = PBXGroup;
 			children = (
 				0F17E13816E7826D005E843E /* AppDelegate */,
-				0F17E12116E78255005E843E /* AppDelegate.h */,
-				0F17E12216E78255005E843E /* AppDelegate.m */,
 				0F17E13A16E7827F005E843E /* Resource */,
 				0F17E11916E78255005E843E /* Supporting Files */,
 				0F17E13916E78275005E843E /* ViewController */,
@@ -367,6 +367,8 @@
 		0F17E13816E7826D005E843E /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				0F17E12116E78255005E843E /* AppDelegate.h */,
+				0F17E12216E78255005E843E /* AppDelegate.m */,
 			);
 			name = AppDelegate;
 			sourceTree = "<group>";
@@ -437,6 +439,7 @@
 				0F17E14B16E78300005E843E /* AlphaNum.h */,
 				0F17E14C16E78300005E843E /* AlphaNum.m */,
 				0F17E14D16E78300005E843E /* AlphaNum.xib */,
+				8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */,
 			);
 			name = AlphaNum;
 			sourceTree = "<group>";
@@ -521,7 +524,7 @@
 		0F17E1BA16E788FF005E843E /* test */ = {
 			isa = PBXGroup;
 			children = (
-				0F94769916E7AABA00C4CFD7 /* IntelliLock Alphanumeric.png */,
+				0F94769916E7AABA00C4CFD7 /* g.png */,
 				0F17E1BB16E78908005E843E /* IntelliLock 4DigitPIN.png */,
 			);
 			name = test;
@@ -783,7 +786,8 @@
 				0F94769616E7A9F900C4CFD7 /* al_btnZ.png in Resources */,
 				0F94769716E7A9F900C4CFD7 /* al_btnZ@2x.png in Resources */,
 				0F94769816E7A9F900C4CFD7 /* Lock-Generator_03.png in Resources */,
-				0F94769A16E7AABA00C4CFD7 /* IntelliLock Alphanumeric.png in Resources */,
+				0F94769A16E7AABA00C4CFD7 /* g.png in Resources */,
+				8CD717CC16E88C220086D6DD /* AlphaNum_iphone5.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
