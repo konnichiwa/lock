@@ -144,6 +144,30 @@
 		0F94769716E7A9F900C4CFD7 /* al_btnZ@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94764E16E7A9F900C4CFD7 /* al_btnZ@2x.png */; };
 		0F94769816E7A9F900C4CFD7 /* Lock-Generator_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94764F16E7A9F900C4CFD7 /* Lock-Generator_03.png */; };
 		0F94769A16E7AABA00C4CFD7 /* g.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F94769916E7AABA00C4CFD7 /* g.png */; };
+		0F99C09A16EAC19000F7DB08 /* padlock_bg_picker.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C09816EAC19000F7DB08 /* padlock_bg_picker.png */; };
+		0F99C09B16EAC19000F7DB08 /* padlock_bg_picker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C09916EAC19000F7DB08 /* padlock_bg_picker@2x.png */; };
+		0F99C09E16EAC8B800F7DB08 /* pad_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C09C16EAC8B800F7DB08 /* pad_line.png */; };
+		0F99C09F16EAC8B800F7DB08 /* pad_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C09D16EAC8B800F7DB08 /* pad_line@2x.png */; };
+		0F99C0BC16EAD24100F7DB08 /* padNum0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0A816EAD24000F7DB08 /* padNum0.png */; };
+		0F99C0BD16EAD24100F7DB08 /* padNum0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0A916EAD24000F7DB08 /* padNum0@2x.png */; };
+		0F99C0BE16EAD24100F7DB08 /* padNum1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0AA16EAD24000F7DB08 /* padNum1.png */; };
+		0F99C0BF16EAD24100F7DB08 /* padNum1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0AB16EAD24000F7DB08 /* padNum1@2x.png */; };
+		0F99C0C016EAD24100F7DB08 /* padNum2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0AC16EAD24000F7DB08 /* padNum2.png */; };
+		0F99C0C116EAD24100F7DB08 /* padNum2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0AD16EAD24000F7DB08 /* padNum2@2x.png */; };
+		0F99C0C216EAD24100F7DB08 /* padNum3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0AE16EAD24000F7DB08 /* padNum3.png */; };
+		0F99C0C316EAD24100F7DB08 /* padNum3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0AF16EAD24000F7DB08 /* padNum3@2x.png */; };
+		0F99C0C416EAD24100F7DB08 /* padNum4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0B016EAD24000F7DB08 /* padNum4.png */; };
+		0F99C0C516EAD24100F7DB08 /* padNum4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0B116EAD24000F7DB08 /* padNum4@2x.png */; };
+		0F99C0C616EAD24100F7DB08 /* padNum5.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0B216EAD24000F7DB08 /* padNum5.png */; };
+		0F99C0C716EAD24100F7DB08 /* padNum5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0B316EAD24000F7DB08 /* padNum5@2x.png */; };
+		0F99C0C816EAD24100F7DB08 /* padNum6.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0B416EAD24100F7DB08 /* padNum6.png */; };
+		0F99C0C916EAD24100F7DB08 /* padNum6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0B516EAD24100F7DB08 /* padNum6@2x.png */; };
+		0F99C0CA16EAD24100F7DB08 /* padNum7.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0B616EAD24100F7DB08 /* padNum7.png */; };
+		0F99C0CB16EAD24100F7DB08 /* padNum7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0B716EAD24100F7DB08 /* padNum7@2x.png */; };
+		0F99C0CC16EAD24100F7DB08 /* padNum8.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0B816EAD24100F7DB08 /* padNum8.png */; };
+		0F99C0CD16EAD24100F7DB08 /* padNum8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0B916EAD24100F7DB08 /* padNum8@2x.png */; };
+		0F99C0CE16EAD24100F7DB08 /* padNum9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0BA16EAD24100F7DB08 /* padNum9.png */; };
+		0F99C0CF16EAD24100F7DB08 /* padNum9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0BB16EAD24100F7DB08 /* padNum9@2x.png */; };
 		8CD717CC16E88C220086D6DD /* AlphaNum_iphone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */; };
 /* End PBXBuildFile section */
 
@@ -295,6 +319,30 @@
 		0F94764E16E7A9F900C4CFD7 /* al_btnZ@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "al_btnZ@2x.png"; sourceTree = "<group>"; };
 		0F94764F16E7A9F900C4CFD7 /* Lock-Generator_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lock-Generator_03.png"; sourceTree = "<group>"; };
 		0F94769916E7AABA00C4CFD7 /* g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = g.png; sourceTree = "<group>"; };
+		0F99C09816EAC19000F7DB08 /* padlock_bg_picker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padlock_bg_picker.png; sourceTree = "<group>"; };
+		0F99C09916EAC19000F7DB08 /* padlock_bg_picker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padlock_bg_picker@2x.png"; sourceTree = "<group>"; };
+		0F99C09C16EAC8B800F7DB08 /* pad_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pad_line.png; sourceTree = "<group>"; };
+		0F99C09D16EAC8B800F7DB08 /* pad_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pad_line@2x.png"; sourceTree = "<group>"; };
+		0F99C0A816EAD24000F7DB08 /* padNum0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padNum0.png; sourceTree = "<group>"; };
+		0F99C0A916EAD24000F7DB08 /* padNum0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum0@2x.png"; sourceTree = "<group>"; };
+		0F99C0AA16EAD24000F7DB08 /* padNum1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padNum1.png; sourceTree = "<group>"; };
+		0F99C0AB16EAD24000F7DB08 /* padNum1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum1@2x.png"; sourceTree = "<group>"; };
+		0F99C0AC16EAD24000F7DB08 /* padNum2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padNum2.png; sourceTree = "<group>"; };
+		0F99C0AD16EAD24000F7DB08 /* padNum2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum2@2x.png"; sourceTree = "<group>"; };
+		0F99C0AE16EAD24000F7DB08 /* padNum3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padNum3.png; sourceTree = "<group>"; };
+		0F99C0AF16EAD24000F7DB08 /* padNum3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum3@2x.png"; sourceTree = "<group>"; };
+		0F99C0B016EAD24000F7DB08 /* padNum4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padNum4.png; sourceTree = "<group>"; };
+		0F99C0B116EAD24000F7DB08 /* padNum4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum4@2x.png"; sourceTree = "<group>"; };
+		0F99C0B216EAD24000F7DB08 /* padNum5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padNum5.png; sourceTree = "<group>"; };
+		0F99C0B316EAD24000F7DB08 /* padNum5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum5@2x.png"; sourceTree = "<group>"; };
+		0F99C0B416EAD24100F7DB08 /* padNum6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padNum6.png; sourceTree = "<group>"; };
+		0F99C0B516EAD24100F7DB08 /* padNum6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum6@2x.png"; sourceTree = "<group>"; };
+		0F99C0B616EAD24100F7DB08 /* padNum7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padNum7.png; sourceTree = "<group>"; };
+		0F99C0B716EAD24100F7DB08 /* padNum7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum7@2x.png"; sourceTree = "<group>"; };
+		0F99C0B816EAD24100F7DB08 /* padNum8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padNum8.png; sourceTree = "<group>"; };
+		0F99C0B916EAD24100F7DB08 /* padNum8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum8@2x.png"; sourceTree = "<group>"; };
+		0F99C0BA16EAD24100F7DB08 /* padNum9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padNum9.png; sourceTree = "<group>"; };
+		0F99C0BB16EAD24100F7DB08 /* padNum9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum9@2x.png"; sourceTree = "<group>"; };
 		8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlphaNum_iphone5.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -396,6 +444,7 @@
 		0F17E13B16E7828D005E843E /* image */ = {
 			isa = PBXGroup;
 			children = (
+				0F99C08A16EAC09D00F7DB08 /* padLock */,
 				0F94760516E7A9BC00C4CFD7 /* AlphaNum */,
 				0F17E1BA16E788FF005E843E /* test */,
 				0F17E18D16E78522005E843E /* fourDigital */,
@@ -610,6 +659,37 @@
 			name = AlphaNum;
 			sourceTree = "<group>";
 		};
+		0F99C08A16EAC09D00F7DB08 /* padLock */ = {
+			isa = PBXGroup;
+			children = (
+				0F99C0A816EAD24000F7DB08 /* padNum0.png */,
+				0F99C0A916EAD24000F7DB08 /* padNum0@2x.png */,
+				0F99C0AA16EAD24000F7DB08 /* padNum1.png */,
+				0F99C0AB16EAD24000F7DB08 /* padNum1@2x.png */,
+				0F99C0AC16EAD24000F7DB08 /* padNum2.png */,
+				0F99C0AD16EAD24000F7DB08 /* padNum2@2x.png */,
+				0F99C0AE16EAD24000F7DB08 /* padNum3.png */,
+				0F99C0AF16EAD24000F7DB08 /* padNum3@2x.png */,
+				0F99C0B016EAD24000F7DB08 /* padNum4.png */,
+				0F99C0B116EAD24000F7DB08 /* padNum4@2x.png */,
+				0F99C0B216EAD24000F7DB08 /* padNum5.png */,
+				0F99C0B316EAD24000F7DB08 /* padNum5@2x.png */,
+				0F99C0B416EAD24100F7DB08 /* padNum6.png */,
+				0F99C0B516EAD24100F7DB08 /* padNum6@2x.png */,
+				0F99C0B616EAD24100F7DB08 /* padNum7.png */,
+				0F99C0B716EAD24100F7DB08 /* padNum7@2x.png */,
+				0F99C0B816EAD24100F7DB08 /* padNum8.png */,
+				0F99C0B916EAD24100F7DB08 /* padNum8@2x.png */,
+				0F99C0BA16EAD24100F7DB08 /* padNum9.png */,
+				0F99C0BB16EAD24100F7DB08 /* padNum9@2x.png */,
+				0F99C09816EAC19000F7DB08 /* padlock_bg_picker.png */,
+				0F99C09916EAC19000F7DB08 /* padlock_bg_picker@2x.png */,
+				0F99C09C16EAC8B800F7DB08 /* pad_line.png */,
+				0F99C09D16EAC8B800F7DB08 /* pad_line@2x.png */,
+			);
+			name = padLock;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -788,6 +868,30 @@
 				0F94769816E7A9F900C4CFD7 /* Lock-Generator_03.png in Resources */,
 				0F94769A16E7AABA00C4CFD7 /* g.png in Resources */,
 				8CD717CC16E88C220086D6DD /* AlphaNum_iphone5.xib in Resources */,
+				0F99C09A16EAC19000F7DB08 /* padlock_bg_picker.png in Resources */,
+				0F99C09B16EAC19000F7DB08 /* padlock_bg_picker@2x.png in Resources */,
+				0F99C09E16EAC8B800F7DB08 /* pad_line.png in Resources */,
+				0F99C09F16EAC8B800F7DB08 /* pad_line@2x.png in Resources */,
+				0F99C0BC16EAD24100F7DB08 /* padNum0.png in Resources */,
+				0F99C0BD16EAD24100F7DB08 /* padNum0@2x.png in Resources */,
+				0F99C0BE16EAD24100F7DB08 /* padNum1.png in Resources */,
+				0F99C0BF16EAD24100F7DB08 /* padNum1@2x.png in Resources */,
+				0F99C0C016EAD24100F7DB08 /* padNum2.png in Resources */,
+				0F99C0C116EAD24100F7DB08 /* padNum2@2x.png in Resources */,
+				0F99C0C216EAD24100F7DB08 /* padNum3.png in Resources */,
+				0F99C0C316EAD24100F7DB08 /* padNum3@2x.png in Resources */,
+				0F99C0C416EAD24100F7DB08 /* padNum4.png in Resources */,
+				0F99C0C516EAD24100F7DB08 /* padNum4@2x.png in Resources */,
+				0F99C0C616EAD24100F7DB08 /* padNum5.png in Resources */,
+				0F99C0C716EAD24100F7DB08 /* padNum5@2x.png in Resources */,
+				0F99C0C816EAD24100F7DB08 /* padNum6.png in Resources */,
+				0F99C0C916EAD24100F7DB08 /* padNum6@2x.png in Resources */,
+				0F99C0CA16EAD24100F7DB08 /* padNum7.png in Resources */,
+				0F99C0CB16EAD24100F7DB08 /* padNum7@2x.png in Resources */,
+				0F99C0CC16EAD24100F7DB08 /* padNum8.png in Resources */,
+				0F99C0CD16EAD24100F7DB08 /* padNum8@2x.png in Resources */,
+				0F99C0CE16EAD24100F7DB08 /* padNum9.png in Resources */,
+				0F99C0CF16EAD24100F7DB08 /* padNum9@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
