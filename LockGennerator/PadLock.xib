@@ -132,6 +132,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{107, 399}, {107, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -186,7 +187,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">1234</string>
+						<string key="IBUIText"/>
 						<reference key="IBUITextColor" ref="845834133"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -283,7 +284,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrameSize">{320, 215}</string>
 								<reference key="NSSuperview" ref="85052987"/>
-								<reference key="NSNextKeyView" ref="591289131"/>
+								<reference key="NSNextKeyView" ref="46659019"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -292,16 +293,17 @@
 									<string key="NSResourceName">padlock_bg_picker.png</string>
 								</object>
 							</object>
-							<object class="IBUIView" id="937188939">
+							<object class="IBUIView" id="46659019">
 								<reference key="NSNextResponder" ref="85052987"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{0, 4}, {320, 206}}</string>
 								<reference key="NSSuperview" ref="85052987"/>
+								<reference key="NSNextKeyView" ref="591289131"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MQA</bytes>
-									<object class="NSColorSpace" key="NSCustomColorSpace" id="769076721">
+									<object class="NSColorSpace" key="NSCustomColorSpace" id="884138149">
 										<int key="NSID">2</int>
 									</object>
 								</object>
@@ -323,7 +325,7 @@
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
-					<reference key="NSCustomColorSpace" ref="769076721"/>
+					<reference key="NSCustomColorSpace" ref="884138149"/>
 				</object>
 				<object class="IBUIScreenMetrics" key="IBUISimulatedDestinationMetrics">
 					<string key="IBUISimulatedSizeMetricsClass">IBUIScreenMetrics</string>
@@ -423,7 +425,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">overLayer</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="937188939"/>
+						<reference key="destination" ref="46659019"/>
 					</object>
 					<int key="connectionID">75</int>
 				</object>
@@ -564,7 +566,7 @@
 							<reference ref="1048761206"/>
 							<reference ref="786152024"/>
 							<reference ref="416650601"/>
-							<reference ref="937188939"/>
+							<reference ref="46659019"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -640,7 +642,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">74</int>
-						<reference key="object" ref="937188939"/>
+						<reference key="object" ref="46659019"/>
 						<reference key="parent" ref="85052987"/>
 					</object>
 				</array>

@@ -170,6 +170,13 @@
 		0F99C0CF16EAD24100F7DB08 /* padNum9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0BB16EAD24100F7DB08 /* padNum9@2x.png */; };
 		0F99C0E216EB3EB700F7DB08 /* PadLock_iphone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0E116EB3EB600F7DB08 /* PadLock_iphone5.xib */; };
 		0F99C0E416EB3F7700F7DB08 /* IntelliLock PadLock.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0E316EB3F7700F7DB08 /* IntelliLock PadLock.png */; };
+		0F99C0EA16EB455C00F7DB08 /* pattern_off_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0E616EB455C00F7DB08 /* pattern_off_dot.png */; };
+		0F99C0EB16EB455C00F7DB08 /* pattern_on_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0E716EB455C00F7DB08 /* pattern_on_dot.png */; };
+		0F99C0EC16EB455C00F7DB08 /* pattern_off_dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0E816EB455C00F7DB08 /* pattern_off_dot@2x.png */; };
+		0F99C0ED16EB455C00F7DB08 /* pattern_on_dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0E916EB455C00F7DB08 /* pattern_on_dot@2x.png */; };
+		0F99C0EF16EB462D00F7DB08 /* IntelliLock PatternPasscode.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0EE16EB462D00F7DB08 /* IntelliLock PatternPasscode.png */; };
+		0F99C0F916EB518200F7DB08 /* DrawPatternLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F99C0F516EB518200F7DB08 /* DrawPatternLockView.m */; };
+		0F99C0FA16EB518200F7DB08 /* DrawPatternLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F99C0F716EB518200F7DB08 /* DrawPatternLockViewController.m */; };
 		8CD717CC16E88C220086D6DD /* AlphaNum_iphone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */; };
 /* End PBXBuildFile section */
 
@@ -347,6 +354,15 @@
 		0F99C0BB16EAD24100F7DB08 /* padNum9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum9@2x.png"; sourceTree = "<group>"; };
 		0F99C0E116EB3EB600F7DB08 /* PadLock_iphone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PadLock_iphone5.xib; sourceTree = "<group>"; };
 		0F99C0E316EB3F7700F7DB08 /* IntelliLock PadLock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IntelliLock PadLock.png"; sourceTree = "<group>"; };
+		0F99C0E616EB455C00F7DB08 /* pattern_off_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pattern_off_dot.png; sourceTree = "<group>"; };
+		0F99C0E716EB455C00F7DB08 /* pattern_on_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pattern_on_dot.png; sourceTree = "<group>"; };
+		0F99C0E816EB455C00F7DB08 /* pattern_off_dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pattern_off_dot@2x.png"; sourceTree = "<group>"; };
+		0F99C0E916EB455C00F7DB08 /* pattern_on_dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pattern_on_dot@2x.png"; sourceTree = "<group>"; };
+		0F99C0EE16EB462D00F7DB08 /* IntelliLock PatternPasscode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IntelliLock PatternPasscode.png"; sourceTree = "<group>"; };
+		0F99C0F516EB518200F7DB08 /* DrawPatternLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawPatternLockView.m; sourceTree = "<group>"; };
+		0F99C0F616EB518200F7DB08 /* DrawPatternLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawPatternLockView.h; sourceTree = "<group>"; };
+		0F99C0F716EB518200F7DB08 /* DrawPatternLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawPatternLockViewController.m; sourceTree = "<group>"; };
+		0F99C0F816EB518200F7DB08 /* DrawPatternLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawPatternLockViewController.h; sourceTree = "<group>"; };
 		8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlphaNum_iphone5.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -448,6 +464,7 @@
 		0F17E13B16E7828D005E843E /* image */ = {
 			isa = PBXGroup;
 			children = (
+				0F99C0E516EB454B00F7DB08 /* pattern */,
 				0F99C08A16EAC09D00F7DB08 /* padLock */,
 				0F94760516E7A9BC00C4CFD7 /* AlphaNum */,
 				0F17E1BA16E788FF005E843E /* test */,
@@ -460,6 +477,7 @@
 		0F17E13C16E78292005E843E /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				0F99C0F416EB516800F7DB08 /* PatternLib */,
 				0F17E15916E7832A005E843E /* GTabbar */,
 			);
 			name = Lib;
@@ -580,6 +598,7 @@
 			children = (
 				0F99C0E316EB3F7700F7DB08 /* IntelliLock PadLock.png */,
 				0F94769916E7AABA00C4CFD7 /* g.png */,
+				0F99C0EE16EB462D00F7DB08 /* IntelliLock PatternPasscode.png */,
 				0F17E1BB16E78908005E843E /* IntelliLock 4DigitPIN.png */,
 			);
 			name = test;
@@ -694,6 +713,28 @@
 				0F99C09D16EAC8B800F7DB08 /* pad_line@2x.png */,
 			);
 			name = padLock;
+			sourceTree = "<group>";
+		};
+		0F99C0E516EB454B00F7DB08 /* pattern */ = {
+			isa = PBXGroup;
+			children = (
+				0F99C0E616EB455C00F7DB08 /* pattern_off_dot.png */,
+				0F99C0E716EB455C00F7DB08 /* pattern_on_dot.png */,
+				0F99C0E816EB455C00F7DB08 /* pattern_off_dot@2x.png */,
+				0F99C0E916EB455C00F7DB08 /* pattern_on_dot@2x.png */,
+			);
+			name = pattern;
+			sourceTree = "<group>";
+		};
+		0F99C0F416EB516800F7DB08 /* PatternLib */ = {
+			isa = PBXGroup;
+			children = (
+				0F99C0F516EB518200F7DB08 /* DrawPatternLockView.m */,
+				0F99C0F616EB518200F7DB08 /* DrawPatternLockView.h */,
+				0F99C0F716EB518200F7DB08 /* DrawPatternLockViewController.m */,
+				0F99C0F816EB518200F7DB08 /* DrawPatternLockViewController.h */,
+			);
+			name = PatternLib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -900,6 +941,11 @@
 				0F99C0CF16EAD24100F7DB08 /* padNum9@2x.png in Resources */,
 				0F99C0E216EB3EB700F7DB08 /* PadLock_iphone5.xib in Resources */,
 				0F99C0E416EB3F7700F7DB08 /* IntelliLock PadLock.png in Resources */,
+				0F99C0EA16EB455C00F7DB08 /* pattern_off_dot.png in Resources */,
+				0F99C0EB16EB455C00F7DB08 /* pattern_on_dot.png in Resources */,
+				0F99C0EC16EB455C00F7DB08 /* pattern_off_dot@2x.png in Resources */,
+				0F99C0ED16EB455C00F7DB08 /* pattern_on_dot@2x.png in Resources */,
+				0F99C0EF16EB462D00F7DB08 /* IntelliLock PatternPasscode.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,6 +964,8 @@
 				0F17E15316E78311005E843E /* PadLock.m in Sources */,
 				0F17E15E16E7832A005E843E /* GTabBar.m in Sources */,
 				0F17E15F16E7832A005E843E /* GTabTabItem.m in Sources */,
+				0F99C0F916EB518200F7DB08 /* DrawPatternLockView.m in Sources */,
+				0F99C0FA16EB518200F7DB08 /* DrawPatternLockViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
