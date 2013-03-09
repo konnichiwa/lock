@@ -40,6 +40,7 @@
         btn.enabled=NO;
     }
     _pracBtn.enabled=NO;
+    _clearBtn.enabled=NO;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -94,6 +95,7 @@
     for (UIButton *btn in _btnNum) {
         btn.enabled=NO;
     }
+_clearBtn.enabled=NO;
 }
 
 
@@ -104,6 +106,8 @@
     for (UIButton *btn in _btnNum) {
         btn.enabled=YES;
     }
+ _clearBtn.enabled=YES;
+    
 }
 
 - (IBAction)clearPress:(id)sender {

@@ -7,7 +7,7 @@
 //
 
 #import "PadLock.h"
-
+#import "AppDelegate.h"
 @interface PadLock ()
 
 @end
@@ -16,7 +16,15 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        if ([[AppDelegate shareAppDelegate] isTall]) {
+            self = [super initWithNibName:[NSString stringWithFormat:@"%@_iphone5",nibNameOrNil] bundle:nibBundleOrNil];
+        }else{
+            self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+        }
+    } else {
+        
+    }
     if (self) {
         // Custom initialization
     }
@@ -26,6 +34,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    getPickerTag=@"0000";
+    _clearbtn.enabled=NO;
+    _practisebtn.enabled=NO;
     [_mypicker1 selectRow:500 inComponent:0 animated:YES];
     [_mypicker2 selectRow:500 inComponent:0 animated:YES];
     [_mypicker3 selectRow:500 inComponent:0 animated:YES];
@@ -55,6 +66,7 @@
     return 50.0;
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSUInteger)row inComponent:(NSUInteger)component {
+    getPickerTag=[[getPickerTag stringByReplacingCharactersInRange:NSMakeRange(pickerView.tag-1, 1) withString:@"1"] retain];
 
 	[self pickerViewLoaded:pickerView.tag];
     [self checkResult];
@@ -78,13 +90,16 @@
     num=[num stringByAppendingFormat:@"%d",[_mypicker3 selectedRowInComponent:0]%10];
     num=[num stringByAppendingFormat:@"%d",[_mypicker4 selectedRowInComponent:0]%10];
     _labelText.text=num;
-    
-    if ([num isEqualToString:randomNum]) {
-         [[[UIAlertView alloc] initWithTitle:@"IntelliLock" message:@"You got it right!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        NSLog(@"get tag:%@",getPickerTag);
+    if ([getPickerTag rangeOfString:@"0"].location == NSNotFound) {
+        if ([_labelText.text isEqualToString:randomNum]) {
+            [[[UIAlertView alloc] initWithTitle:@"IntelliLock" message:@"You got it right!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        }
+        else{
+            [[[UIAlertView alloc] initWithTitle:@"IntelliLock" message:@"You got it wrong. Please try again or generate a different passcode." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+        }
     }
-    else{
-          [[[UIAlertView alloc] initWithTitle:@"IntelliLock" message:@"You got it wrong. Please try again or generate a different passcode." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    }
+
 }
 -(void)pickerViewLoaded: (int)blah {
     switch (blah) {
@@ -128,12 +143,25 @@
     num=[num stringByAppendingFormat:@"%d",[_mypicker2 selectedRowInComponent:0]%10];
     num=[num stringByAppendingFormat:@"%d",[_mypicker3 selectedRowInComponent:0]%10];
     num=[num stringByAppendingFormat:@"%d",[_mypicker4 selectedRowInComponent:0]%10];
-    randomNum=num;
+    randomNum=[num retain];
     _labelText.text=num;
 }
 -(int)getRandomNumber:(int)from to:(int)to {
     
     return (int)from + arc4random() % (to-from+1);
+}
+-(void)clearPadLock
+{
+    [self pickerViewLoaded:1];
+    [self pickerViewLoaded:2];
+    [self pickerViewLoaded:3];
+    [self pickerViewLoaded:4];
+    [_mypicker1 selectRow:10500 inComponent:0 animated:YES];
+    [_mypicker2 selectRow:10500 inComponent:0 animated:YES];
+    [_mypicker3 selectRow:10500 inComponent:0 animated:YES];
+    [_mypicker4 selectRow:10500 inComponent:0 animated:YES];
+    _labelText.text=@"0000";
+    getPickerTag=@"0000";
 }
 - (void)dealloc {
     [_mypicker1 release];
@@ -141,6 +169,10 @@
     [_mypicker3 release];
     [_mypicker4 release];
     [_labelText release];
+    [_clearbtn release];
+    [_practisebtn release];
+    [_viewPicker release];
+    [_overLayer release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -149,12 +181,29 @@
     [self setMypicker3:nil];
     [self setMypicker4:nil];
     [self setLabelText:nil];
+    [self setClearbtn:nil];
+    [self setPractisebtn:nil];
+    [self setViewPicker:nil];
+    [self setOverLayer:nil];
     [super viewDidUnload];
 }
 #pragma mark -action
 - (IBAction)genePress:(id)sender {
+    getPickerTag=@"0000";
     [self autoscroll];
-    
+    _clearbtn.enabled=NO;
+    _practisebtn.enabled=YES;
+     _overLayer.hidden=NO;
+}
+
+- (IBAction)clearPress:(id)sender {
+    [self clearPadLock];
+}
+
+- (IBAction)practisePress:(id)sender {
+    _overLayer.hidden=YES;
+    _clearbtn.enabled=YES;
+        [self clearPadLock];
 }
 
 @end

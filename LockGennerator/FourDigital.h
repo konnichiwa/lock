@@ -20,6 +20,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *numText;
 @property (retain, nonatomic) IBOutletCollection(UIButton) NSArray *numBtn;
 @property (retain, nonatomic) IBOutlet UIButton *praBtn;
+@property (retain, nonatomic) IBOutlet UIButton *clearbtn;
 
 - (IBAction)numPress:(id)sender;
 - (IBAction)generatePress:(id)sender;

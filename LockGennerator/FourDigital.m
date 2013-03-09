@@ -74,6 +74,7 @@
     for (UIButton *btn in _numBtn) {
         btn.enabled=NO;
     }
+    _clearbtn.enabled=NO;
     [self showRandum];
 }
 - (void)dealloc {
@@ -81,6 +82,7 @@
     [_numText release];
     [_numBtn release];
     [_praBtn release];
+    [_clearbtn release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -88,6 +90,7 @@
     [self setNumText:nil];
     [self setNumBtn:nil];
     [self setPraBtn:nil];
+    [self setClearbtn:nil];
     [super viewDidUnload];
 }
 - (IBAction)practisePress:(id)sender {
@@ -97,6 +100,7 @@
     for (UIButton *btn in _numBtn) {
         btn.enabled=YES;
     }
+    _clearbtn.enabled=YES;
 }
 
 - (IBAction)clearPress:(id)sender {
@@ -117,5 +121,6 @@
         btn.enabled=NO;
     }
     _praBtn.enabled=NO;
+    _clearbtn.enabled=NO;
 }
 @end

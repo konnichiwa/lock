@@ -168,6 +168,8 @@
 		0F99C0CD16EAD24100F7DB08 /* padNum8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0B916EAD24100F7DB08 /* padNum8@2x.png */; };
 		0F99C0CE16EAD24100F7DB08 /* padNum9.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0BA16EAD24100F7DB08 /* padNum9.png */; };
 		0F99C0CF16EAD24100F7DB08 /* padNum9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0BB16EAD24100F7DB08 /* padNum9@2x.png */; };
+		0F99C0E216EB3EB700F7DB08 /* PadLock_iphone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0E116EB3EB600F7DB08 /* PadLock_iphone5.xib */; };
+		0F99C0E416EB3F7700F7DB08 /* IntelliLock PadLock.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F99C0E316EB3F7700F7DB08 /* IntelliLock PadLock.png */; };
 		8CD717CC16E88C220086D6DD /* AlphaNum_iphone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */; };
 /* End PBXBuildFile section */
 
@@ -343,6 +345,8 @@
 		0F99C0B916EAD24100F7DB08 /* padNum8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum8@2x.png"; sourceTree = "<group>"; };
 		0F99C0BA16EAD24100F7DB08 /* padNum9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padNum9.png; sourceTree = "<group>"; };
 		0F99C0BB16EAD24100F7DB08 /* padNum9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padNum9@2x.png"; sourceTree = "<group>"; };
+		0F99C0E116EB3EB600F7DB08 /* PadLock_iphone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PadLock_iphone5.xib; sourceTree = "<group>"; };
+		0F99C0E316EB3F7700F7DB08 /* IntelliLock PadLock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IntelliLock PadLock.png"; sourceTree = "<group>"; };
 		8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlphaNum_iphone5.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -499,6 +503,7 @@
 				0F17E15016E78311005E843E /* PadLock.h */,
 				0F17E15116E78311005E843E /* PadLock.m */,
 				0F17E15216E78311005E843E /* PadLock.xib */,
+				0F99C0E116EB3EB600F7DB08 /* PadLock_iphone5.xib */,
 			);
 			name = PadLok;
 			sourceTree = "<group>";
@@ -573,6 +578,7 @@
 		0F17E1BA16E788FF005E843E /* test */ = {
 			isa = PBXGroup;
 			children = (
+				0F99C0E316EB3F7700F7DB08 /* IntelliLock PadLock.png */,
 				0F94769916E7AABA00C4CFD7 /* g.png */,
 				0F17E1BB16E78908005E843E /* IntelliLock 4DigitPIN.png */,
 			);
@@ -892,6 +898,8 @@
 				0F99C0CD16EAD24100F7DB08 /* padNum8@2x.png in Resources */,
 				0F99C0CE16EAD24100F7DB08 /* padNum9.png in Resources */,
 				0F99C0CF16EAD24100F7DB08 /* padNum9@2x.png in Resources */,
+				0F99C0E216EB3EB700F7DB08 /* PadLock_iphone5.xib in Resources */,
+				0F99C0E416EB3F7700F7DB08 /* IntelliLock PadLock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
