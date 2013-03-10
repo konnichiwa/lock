@@ -70,7 +70,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{47, 360}, {107, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView" ref="491377352"/>
+						<reference key="NSNextKeyView" ref="100370370"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -107,7 +107,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{107, 399}, {107, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView" ref="100370370"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -131,6 +131,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{168, 360}, {107, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView" ref="491377352"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -243,7 +244,7 @@
 						<reference key="IBUINormalTitleShadowColor" ref="259023956"/>
 						<object class="NSCustomResource" key="IBUINormalImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">digital_btn_7-09.png</string>
+							<string key="NSResourceName">digital_btn_9.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="400641369"/>
 						<reference key="IBUIFont" ref="49684446"/>
@@ -930,9 +931,9 @@
 			<string key="digital_btn_4.png">{60, 60}</string>
 			<string key="digital_btn_5.png">{60, 60}</string>
 			<string key="digital_btn_6.png">{60, 60}</string>
-			<string key="digital_btn_7-09.png">{60, 60}</string>
 			<string key="digital_btn_7.png">{60, 60}</string>
 			<string key="digital_btn_8.png">{60, 60}</string>
+			<string key="digital_btn_9.png">{60, 60}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1929</string>
 	</data>

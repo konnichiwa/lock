@@ -81,9 +81,9 @@
 -(void)setupTabbarDidLogin
 {
     GTabTabItem *tabItem1 = [[GTabTabItem alloc] initWithFrame:CGRectMake(0, 0, 80, 46) normalState:@"" toggledState:@"btn_4_digit_h"];
-	GTabTabItem *tabItem2 = [[GTabTabItem alloc] initWithFrame:CGRectMake(80, 0, 80, 46) normalState:@"" toggledState:@"btn_4_paternt_h"];
-	GTabTabItem *tabItem3 = [[GTabTabItem alloc] initWithFrame:CGRectMake(80+80, 0, 80, 46) normalState:@"" toggledState:@"btn_4_alphanum_h"];
-	GTabTabItem *tabItem4 = [[GTabTabItem alloc] initWithFrame:CGRectMake(80+80+80, 0, 80, 46) normalState:@"" toggledState:@"btn_4_padlock_h"];
+	GTabTabItem *tabItem2 = [[GTabTabItem alloc] initWithFrame:CGRectMake(80-1, 0, 80, 46) normalState:@"" toggledState:@"btn_4_paternt_h"];
+	GTabTabItem *tabItem3 = [[GTabTabItem alloc] initWithFrame:CGRectMake(80+80-1, 0, 80, 46) normalState:@"" toggledState:@"btn_4_alphanum_h"];
+	GTabTabItem *tabItem4 = [[GTabTabItem alloc] initWithFrame:CGRectMake(80+80+80-1, 0, 80+1, 46) normalState:@"" toggledState:@"btn_4_padlock_h"];
     
     FourDigital *fourDigital = [[[FourDigital alloc] initWithNibName:@"FourDigital" bundle:nil] autorelease];
     Pattern *pattern= [[[Pattern alloc] initWithNibName:@"Pattern" bundle:nil] autorelease];
