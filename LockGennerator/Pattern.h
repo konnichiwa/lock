@@ -14,7 +14,9 @@
     id _target;
     SEL _action;
     NSInteger matrixNum;
+    BOOL isDisable;
 }
 @property (retain, nonatomic) IBOutlet DrawPatternLockView *pad9;
 @property (retain, nonatomic) IBOutletCollection(UIImageView) NSArray *imageDot;
+- (IBAction)clearPress:(id)sender;
 @end

@@ -27,8 +27,8 @@
 {
   NSLog(@"drawrect...");
   
-  if (!_trackPointValue)
-    return;
+//  if (!_trackPointValue)
+//    return;
 
   CGContextRef context = UIGraphicsGetCurrentContext();
   CGContextSetLineWidth(context, 25.0);
@@ -54,9 +54,12 @@
              CGContextMoveToPoint(context, from.x, from.y);
         }
     }
-  CGPoint pt = [_trackPointValue CGPointValue];
-  NSLog(@"\t cgpoint to: %f, %f", pt.x, pt.y);
-  CGContextAddLineToPoint(context, pt.x, pt.y);
+    if (_trackPointValue!=nil) {
+        CGPoint pt = [_trackPointValue CGPointValue];
+        NSLog(@"\t cgpoint to: %f, %f", pt.x, pt.y);
+        CGContextAddLineToPoint(context, pt.x, pt.y);
+    }
+
   
     
   CGContextStrokePath(context);
@@ -74,9 +77,8 @@
 
 - (void)addDotView:(UIView *)view {
   if (!_dotViews)
-    _dotViews = [[NSMutableArray alloc] init];
-
-  [_dotViews addObject:view];
+      _dotViews = [[NSMutableArray alloc] init];
+    [_dotViews addObject:view];
 }
 
 

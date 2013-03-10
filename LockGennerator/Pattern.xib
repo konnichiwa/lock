@@ -130,7 +130,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{107, 399}, {107, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -180,104 +179,104 @@
 							<object class="IBUIImageView" id="948807123">
 								<reference key="NSNextResponder" ref="171599248"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{123, 187}, {74, 72}}</string>
+								<string key="NSFrame">{{130, 187}, {61, 61}}</string>
 								<reference key="NSSuperview" ref="171599248"/>
 								<reference key="NSNextKeyView" ref="144742982"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUITag">8</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<object class="NSCustomResource" key="IBUIImage" id="206874508">
+								<object class="NSCustomResource" key="IBUIImage" id="999429346">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pattern_off_dot.png</string>
+									<string key="NSResourceName">pad_off.png</string>
 								</object>
 							</object>
 							<object class="IBUIImageView" id="260784851">
 								<reference key="NSNextResponder" ref="171599248"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{123, 94}, {74, 72}}</string>
+								<string key="NSFrame">{{130, 99}, {61, 61}}</string>
 								<reference key="NSSuperview" ref="171599248"/>
 								<reference key="NSNextKeyView" ref="224002583"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUITag">5</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUIImage" ref="206874508"/>
+								<reference key="IBUIImage" ref="999429346"/>
 							</object>
 							<object class="IBUIImageView" id="76593577">
 								<reference key="NSNextResponder" ref="171599248"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{123, 0}, {74, 72}}</string>
+								<string key="NSFrame">{{130, 5}, {61, 61}}</string>
 								<reference key="NSSuperview" ref="171599248"/>
 								<reference key="NSNextKeyView" ref="382782375"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUITag">2</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUIImage" ref="206874508"/>
+								<reference key="IBUIImage" ref="999429346"/>
 							</object>
 							<object class="IBUIImageView" id="554623756">
 								<reference key="NSNextResponder" ref="171599248"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{25, 187}, {74, 72}}</string>
+								<string key="NSFrame">{{25, 187}, {61, 61}}</string>
 								<reference key="NSSuperview" ref="171599248"/>
 								<reference key="NSNextKeyView" ref="948807123"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUITag">7</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUIImage" ref="206874508"/>
+								<reference key="IBUIImage" ref="999429346"/>
 							</object>
 							<object class="IBUIImageView" id="672560827">
 								<reference key="NSNextResponder" ref="171599248"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{25, 94}, {74, 72}}</string>
+								<string key="NSFrame">{{25, 99}, {61, 61}}</string>
 								<reference key="NSSuperview" ref="171599248"/>
 								<reference key="NSNextKeyView" ref="260784851"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUITag">4</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUIImage" ref="206874508"/>
+								<reference key="IBUIImage" ref="999429346"/>
 							</object>
 							<object class="IBUIImageView" id="321956011">
 								<reference key="NSNextResponder" ref="171599248"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{25, 0}, {74, 72}}</string>
+								<string key="NSFrame">{{25, 5}, {61, 61}}</string>
 								<reference key="NSSuperview" ref="171599248"/>
 								<reference key="NSNextKeyView" ref="76593577"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUITag">1</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUIImage" ref="206874508"/>
+								<reference key="IBUIImage" ref="999429346"/>
 							</object>
 							<object class="IBUIImageView" id="144742982">
 								<reference key="NSNextResponder" ref="171599248"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{220, 187}, {74, 72}}</string>
+								<string key="NSFrame">{{231, 187}, {61, 61}}</string>
 								<reference key="NSSuperview" ref="171599248"/>
 								<reference key="NSNextKeyView" ref="172239135"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUITag">9</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUIImage" ref="206874508"/>
+								<reference key="IBUIImage" ref="999429346"/>
 							</object>
 							<object class="IBUIImageView" id="224002583">
 								<reference key="NSNextResponder" ref="171599248"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{220, 94}, {74, 72}}</string>
+								<string key="NSFrame">{{231, 99}, {61, 61}}</string>
 								<reference key="NSSuperview" ref="171599248"/>
 								<reference key="NSNextKeyView" ref="554623756"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUITag">6</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUIImage" ref="206874508"/>
+								<reference key="IBUIImage" ref="999429346"/>
 							</object>
 							<object class="IBUIImageView" id="382782375">
 								<reference key="NSNextResponder" ref="171599248"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{220, 0}, {74, 72}}</string>
+								<string key="NSFrame">{{231, 5}, {61, 61}}</string>
 								<reference key="NSSuperview" ref="171599248"/>
 								<reference key="NSNextKeyView" ref="672560827"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<int key="IBUITag">3</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<reference key="IBUIImage" ref="206874508"/>
+								<reference key="IBUIImage" ref="999429346"/>
 							</object>
 						</array>
 						<string key="NSFrame">{{0, 84}, {320, 259}}</string>
@@ -432,6 +431,15 @@
 						<bool key="addsContentToExistingCollection">NO</bool>
 					</object>
 					<int key="connectionID">34</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">clearPress:</string>
+						<reference key="source" ref="406543664"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">36</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -588,7 +596,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">35</int>
+			<int key="maxID">36</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
@@ -602,7 +610,7 @@
 			<string key="btn_generate.png">{107, 31}</string>
 			<string key="btn_practise.png">{106, 30}</string>
 			<string key="btn_setting.png">{39, 36}</string>
-			<string key="pattern_off_dot.png">{74, 72}</string>
+			<string key="pad_off.png">{61, 61}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1929</string>
 	</data>

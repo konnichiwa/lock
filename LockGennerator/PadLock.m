@@ -91,14 +91,15 @@
     num=[num stringByAppendingFormat:@"%d",[_mypicker4 selectedRowInComponent:0]%10];
     _labelText.text=num;
         NSLog(@"get tag:%@",getPickerTag);
-    if ([getPickerTag rangeOfString:@"0"].location == NSNotFound) {
+
         if ([_labelText.text isEqualToString:randomNum]) {
             [[[UIAlertView alloc] initWithTitle:@"IntelliLock" message:@"You got it right!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         }
         else{
+                if ([getPickerTag rangeOfString:@"0"].location == NSNotFound) {
             [[[UIAlertView alloc] initWithTitle:@"IntelliLock" message:@"You got it wrong. Please try again or generate a different passcode." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                }
         }
-    }
 
 }
 -(void)pickerViewLoaded: (int)blah {
