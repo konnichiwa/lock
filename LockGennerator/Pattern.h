@@ -15,8 +15,23 @@
     SEL _action;
     NSInteger matrixNum;
     BOOL isDisable;
+    NSMutableArray *imageDotTemp;
+    DrawPatternLockView *v;
+    BOOL isPad9;
+    NSString *result;
+    NSString *randomPatern;
 }
 @property (retain, nonatomic) IBOutlet DrawPatternLockView *pad9;
+@property (retain, nonatomic) IBOutlet DrawPatternLockView *pad16;
 @property (retain, nonatomic) IBOutletCollection(UIImageView) NSArray *imageDot;
+@property (retain, nonatomic) IBOutletCollection(UIImageView) NSArray *imageDot9;
+
+@property (retain, nonatomic) IBOutlet UIButton *practiseBtn;
+@property (retain, nonatomic) IBOutlet UIButton *clearBtn;
+
+- (IBAction)chooseStyle:(id)sender;
+- (IBAction)genePress:(id)sender;
+- (IBAction)practisePress:(id)sender;
 - (IBAction)clearPress:(id)sender;
+
 @end

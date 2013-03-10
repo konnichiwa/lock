@@ -180,6 +180,9 @@
 		0FE0853416EC1B9B006B1107 /* pad_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FE0852E16EC1B9B006B1107 /* pad_on@2x.png */; };
 		0FE0853516EC1B9B006B1107 /* pad_indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FE0852F16EC1B9B006B1107 /* pad_indicator@2x.png */; };
 		0FE0853C16EC4966006B1107 /* NSArray+sortBy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE0853B16EC4966006B1107 /* NSArray+sortBy.m */; };
+		0FE0854416EC8409006B1107 /* icon_segment1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FE0854216EC8409006B1107 /* icon_segment1.png */; };
+		0FE0854516EC8409006B1107 /* icon_segment1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FE0854316EC8409006B1107 /* icon_segment1@2x.png */; };
+		0FE0854B16EC96A0006B1107 /* Pattern_iphone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FE0854A16EC96A0006B1107 /* Pattern_iphone5.xib */; };
 		8CD717CC16E88C220086D6DD /* AlphaNum_iphone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */; };
 /* End PBXBuildFile section */
 
@@ -370,6 +373,9 @@
 		0FE0852F16EC1B9B006B1107 /* pad_indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pad_indicator@2x.png"; sourceTree = "<group>"; };
 		0FE0853A16EC4966006B1107 /* NSArray+sortBy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+sortBy.h"; sourceTree = "<group>"; };
 		0FE0853B16EC4966006B1107 /* NSArray+sortBy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+sortBy.m"; sourceTree = "<group>"; };
+		0FE0854216EC8409006B1107 /* icon_segment1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_segment1.png; sourceTree = "<group>"; };
+		0FE0854316EC8409006B1107 /* icon_segment1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_segment1@2x.png"; sourceTree = "<group>"; };
+		0FE0854A16EC96A0006B1107 /* Pattern_iphone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Pattern_iphone5.xib; sourceTree = "<group>"; };
 		8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlphaNum_iphone5.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -509,6 +515,7 @@
 				0F17E14616E782ED005E843E /* Pattern.h */,
 				0F17E14716E782ED005E843E /* Pattern.m */,
 				0F17E14816E782ED005E843E /* Pattern.xib */,
+				0FE0854A16EC96A0006B1107 /* Pattern_iphone5.xib */,
 			);
 			name = Pattern;
 			sourceTree = "<group>";
@@ -729,6 +736,8 @@
 			children = (
 				0FE0852A16EC1B9B006B1107 /* pad_off.png */,
 				0FE0852B16EC1B9B006B1107 /* pad_indicator.png */,
+				0FE0854216EC8409006B1107 /* icon_segment1.png */,
+				0FE0854316EC8409006B1107 /* icon_segment1@2x.png */,
 				0FE0852C16EC1B9B006B1107 /* pad_on.png */,
 				0FE0852D16EC1B9B006B1107 /* pad_off@2x.png */,
 				0FE0852E16EC1B9B006B1107 /* pad_on@2x.png */,
@@ -959,6 +968,9 @@
 				0FE0853316EC1B9B006B1107 /* pad_off@2x.png in Resources */,
 				0FE0853416EC1B9B006B1107 /* pad_on@2x.png in Resources */,
 				0FE0853516EC1B9B006B1107 /* pad_indicator@2x.png in Resources */,
+				0FE0854416EC8409006B1107 /* icon_segment1.png in Resources */,
+				0FE0854516EC8409006B1107 /* icon_segment1@2x.png in Resources */,
+				0FE0854B16EC96A0006B1107 /* Pattern_iphone5.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
