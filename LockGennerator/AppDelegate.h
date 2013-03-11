@@ -15,6 +15,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) GTabBar *tabbarView;
+@property (assign, nonatomic) BOOL *isIpad;
 + (AppDelegate *)shareAppDelegate;
 - (BOOL)isTall;
 @end

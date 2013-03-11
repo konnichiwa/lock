@@ -14,6 +14,7 @@
 
 @implementation AppDelegate
 @synthesize tabbarView;
+@synthesize isIpad;
 - (void)dealloc
 {
     [_window release];
@@ -38,9 +39,10 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        isIpad=NO;
 
     } else {
-
+        isIpad=YES;
     }
     [self setupTabbarDidLogin];
     CGRect frame=tabbarView.view.frame;
@@ -80,11 +82,22 @@
 #pragma setup tabbar
 -(void)setupTabbarDidLogin
 {
-    GTabTabItem *tabItem1 = [[GTabTabItem alloc] initWithFrame:CGRectMake(0, 0, 80, 46) normalState:@"" toggledState:@"btn_4_digit_h"];
-	GTabTabItem *tabItem2 = [[GTabTabItem alloc] initWithFrame:CGRectMake(80-1, 0, 80, 46) normalState:@"" toggledState:@"btn_4_paternt_h"];
-	GTabTabItem *tabItem3 = [[GTabTabItem alloc] initWithFrame:CGRectMake(80+80-1, 0, 80, 46) normalState:@"" toggledState:@"btn_4_alphanum_h"];
-	GTabTabItem *tabItem4 = [[GTabTabItem alloc] initWithFrame:CGRectMake(80+80+80-1, 0, 80+1, 46) normalState:@"" toggledState:@"btn_4_padlock_h"];
-    
+    GTabTabItem *tabItem1;
+	GTabTabItem *tabItem2;
+	GTabTabItem *tabItem3;
+	GTabTabItem *tabItem4;
+    if (!isIpad) {
+        tabItem1 = [[GTabTabItem alloc] initWithFrame:CGRectMake(0, 0, 80, 46) normalState:@"" toggledState:@"btn_4_digit_h"];
+        tabItem2 = [[GTabTabItem alloc] initWithFrame:CGRectMake(80-1, 0, 80, 46) normalState:@"" toggledState:@"btn_4_paternt_h"];
+        tabItem3 = [[GTabTabItem alloc] initWithFrame:CGRectMake(80+80-1, 0, 80, 46) normalState:@"" toggledState:@"btn_4_alphanum_h"];
+        tabItem4 = [[GTabTabItem alloc] initWithFrame:CGRectMake(80+80+80-1, 0, 80+1, 46) normalState:@"" toggledState:@"btn_4_padlock_h"];
+    }
+    else{
+        tabItem1 = [[GTabTabItem alloc] initWithFrame:CGRectMake(0, 0, 191, 100) normalState:@"" toggledState:@"btn_4_digit_h~ipad"];
+        tabItem2 = [[GTabTabItem alloc] initWithFrame:CGRectMake(191, 0, 191+2, 100) normalState:@"" toggledState:@"btn_4_paternt_h~ipad"];
+        tabItem3 = [[GTabTabItem alloc] initWithFrame:CGRectMake(191+191, 0, 191+5, 100) normalState:@"" toggledState:@"btn_4_alphanum_h~ipad"];
+        tabItem4 = [[GTabTabItem alloc] initWithFrame:CGRectMake(191+191+191, 0, 191+5, 100) normalState:@"" toggledState:@"btn_4_padlock_h~ipad"];
+    }
     FourDigital *fourDigital = [[[FourDigital alloc] initWithNibName:@"FourDigital" bundle:nil] autorelease];
     Pattern *pattern= [[[Pattern alloc] initWithNibName:@"Pattern" bundle:nil] autorelease];
     AlphaNum *alphaNum = [[[AlphaNum alloc] initWithNibName:@"AlphaNum" bundle:nil] autorelease];

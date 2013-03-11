@@ -24,7 +24,8 @@
             self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
         }
     } else {
-        
+        self = [super initWithNibName:[NSString stringWithFormat:@"%@_ipad",nibNameOrNil] bundle:nibBundleOrNil];
+ 
     }
     if (self) {
         // Custom initialization
