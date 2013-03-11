@@ -125,4 +125,22 @@
     
     
 }
+-(void)addSetting
+{
+    Setting *setting=[[Setting alloc] initWithNibName:@"Setting" bundle:nil];
+    UINavigationController *ncSetting=[[UINavigationController alloc] initWithRootViewController:setting];
+    [self.window addSubview:ncSetting.topViewController.view];
+    CGRect frame=ncSetting.topViewController.view.frame;
+    frame.origin.x=frame.size.width;
+    ncSetting.topViewController.view.frame=frame;
+    frame.origin.x=0;
+    [UIView animateWithDuration:0.5
+                          delay:1.0
+                        options: UIViewAnimationCurveEaseOut
+                     animations:^{
+                         ncSetting.topViewController.view.frame=frame;
+                     }
+                     completion:^(BOOL finished){
+                     }];
+}
 @end

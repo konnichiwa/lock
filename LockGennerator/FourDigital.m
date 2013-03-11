@@ -108,6 +108,11 @@
     _numText.text=@"";
 }
 
+- (IBAction)settingPress:(id)sender {
+    
+    [[AppDelegate shareAppDelegate] addSetting];
+}
+
 -(void)showRandum
 {
     

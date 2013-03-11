@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GTabBar.h"
+#import "Setting.h"
 @class ViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -15,7 +16,8 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) GTabBar *tabbarView;
-@property (assign, nonatomic) BOOL *isIpad;
+@property (assign, nonatomic) BOOL isIpad;
 + (AppDelegate *)shareAppDelegate;
 - (BOOL)isTall;
+-(void)addSetting;
 @end

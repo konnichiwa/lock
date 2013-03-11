@@ -115,6 +115,10 @@ _clearBtn.enabled=NO;
     _textLabel.text=@"";
 
 }
+- (IBAction)settingPress:(id)sender {
+    
+    [[AppDelegate shareAppDelegate] addSetting];
+}
 - (void)dealloc {
     [_textLabel release];
     [_btnNum release];

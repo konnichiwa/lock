@@ -137,7 +137,6 @@
 						<string key="NSFrame">{{107, 471}, {107, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -521,6 +520,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">settingPress:</string>
+						<reference key="source" ref="592498482"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">77</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">practisePress:</string>
 						<reference key="source" ref="959215221"/>
 						<reference key="destination" ref="372490531"/>
@@ -691,7 +699,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">76</int>
+			<int key="maxID">77</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -702,6 +710,7 @@
 						<string key="clearPress:">id</string>
 						<string key="genePress:">id</string>
 						<string key="practisePress:">id</string>
+						<string key="settingPress:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="clearPress:">
@@ -714,6 +723,10 @@
 						</object>
 						<object class="IBActionInfo" key="practisePress:">
 							<string key="name">practisePress:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="settingPress:">
+							<string key="name">settingPress:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

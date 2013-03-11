@@ -69,7 +69,7 @@
 					<object class="IBUIButton" id="592498482">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{276, 2}, {39, 36}}</string>
+						<string key="NSFrame">{{279, 0}, {39, 36}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="880483392"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -132,7 +132,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{107, 399}, {107, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -504,6 +503,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">settingPress:</string>
+						<reference key="source" ref="592498482"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">76</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">practisePress:</string>
 						<reference key="source" ref="959215221"/>
 						<reference key="destination" ref="372490531"/>
@@ -538,9 +546,9 @@
 							<reference ref="85052987"/>
 							<reference ref="215731974"/>
 							<reference ref="686455952"/>
-							<reference ref="592498482"/>
 							<reference ref="880483392"/>
 							<reference ref="959215221"/>
+							<reference ref="592498482"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -674,7 +682,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">75</int>
+			<int key="maxID">76</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

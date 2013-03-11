@@ -345,4 +345,8 @@ tt1:;
 
     
 }
+- (IBAction)settingPress:(id)sender {
+    
+    [[AppDelegate shareAppDelegate] addSetting];
+}
 @end

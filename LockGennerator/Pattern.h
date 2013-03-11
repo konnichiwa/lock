@@ -33,5 +33,5 @@
 - (IBAction)genePress:(id)sender;
 - (IBAction)practisePress:(id)sender;
 - (IBAction)clearPress:(id)sender;
-
+- (IBAction)settingPress:(id)sender;
 @end

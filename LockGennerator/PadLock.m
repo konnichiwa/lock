@@ -206,5 +206,8 @@
     _clearbtn.enabled=YES;
         [self clearPadLock];
 }
-
+- (IBAction)settingPress:(id)sender {
+    
+    [[AppDelegate shareAppDelegate] addSetting];
+}
 @end
