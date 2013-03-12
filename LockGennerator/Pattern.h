@@ -28,10 +28,12 @@
 
 @property (retain, nonatomic) IBOutlet UIButton *practiseBtn;
 @property (retain, nonatomic) IBOutlet UIButton *clearBtn;
+@property (retain, nonatomic) IBOutlet UIButton *saveBtn;
 
 - (IBAction)chooseStyle:(id)sender;
 - (IBAction)genePress:(id)sender;
 - (IBAction)practisePress:(id)sender;
 - (IBAction)clearPress:(id)sender;
 - (IBAction)settingPress:(id)sender;
+- (IBAction)savePress:(id)sender;
 @end

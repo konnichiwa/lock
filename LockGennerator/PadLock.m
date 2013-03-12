@@ -37,13 +37,18 @@
     getPickerTag=@"0000";
     _clearbtn.enabled=NO;
     _practisebtn.enabled=NO;
+    _saveBtn.enabled=NO;
     [_mypicker1 selectRow:500 inComponent:0 animated:YES];
     [_mypicker2 selectRow:500 inComponent:0 animated:YES];
     [_mypicker3 selectRow:500 inComponent:0 animated:YES];
     [_mypicker4 selectRow:500 inComponent:0 animated:YES];
+    
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [AppDelegate shareAppDelegate].index=4;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -67,10 +72,10 @@
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSUInteger)row inComponent:(NSUInteger)component {
     getPickerTag=[[getPickerTag stringByReplacingCharactersInRange:NSMakeRange(pickerView.tag-1, 1) withString:@"1"] retain];
-
+    
 	[self pickerViewLoaded:pickerView.tag];
     [self checkResult];
-
+    
 }
 - (NSUInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSUInteger)component {
 	return 20000;
@@ -90,28 +95,28 @@
     num=[num stringByAppendingFormat:@"%d",[_mypicker3 selectedRowInComponent:0]%10];
     num=[num stringByAppendingFormat:@"%d",[_mypicker4 selectedRowInComponent:0]%10];
     _labelText.text=num;
-        NSLog(@"get tag:%@",getPickerTag);
-
-        if ([_labelText.text isEqualToString:randomNum]) {
-            [[[UIAlertView alloc] initWithTitle:@"IntelliLock" message:@"You got it right!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-        }
-        else{
-                if ([getPickerTag rangeOfString:@"0"].location == NSNotFound) {
+    NSLog(@"get tag:%@",getPickerTag);
+    
+    if ([_labelText.text isEqualToString:randomNum]) {
+        [[[UIAlertView alloc] initWithTitle:@"IntelliLock" message:@"You got it right!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
+    else{
+        if ([getPickerTag rangeOfString:@"0"].location == NSNotFound) {
             [[[UIAlertView alloc] initWithTitle:@"IntelliLock" message:@"You got it wrong. Please try again or generate a different passcode." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-                }
         }
-
+    }
+    
 }
 -(void)pickerViewLoaded: (int)blah {
     switch (blah) {
         case 1:
-            	[_mypicker1 selectRow:[_mypicker1 selectedRowInComponent:0]%10+10000 inComponent:0 animated:false];
+            [_mypicker1 selectRow:[_mypicker1 selectedRowInComponent:0]%10+10000 inComponent:0 animated:false];
             break;
         case 2:
             [_mypicker2 selectRow:[_mypicker2 selectedRowInComponent:0]%10+10000 inComponent:0 animated:false];
             break;
         case 3:
-            	[_mypicker3 selectRow:[_mypicker3 selectedRowInComponent:0]%10+10000 inComponent:0 animated:false];
+            [_mypicker3 selectRow:[_mypicker3 selectedRowInComponent:0]%10+10000 inComponent:0 animated:false];
             break;
         case 4:
             [_mypicker4 selectRow:[_mypicker4 selectedRowInComponent:0]%10+10000 inComponent:0 animated:false];
@@ -135,7 +140,7 @@
     [self performSelector:@selector(setMyLabel)  // setMyLabel - my function
                withObject:nil
                afterDelay:0.4];
-
+    
 }
 -(void)setMyLabel
 {
@@ -146,6 +151,8 @@
     num=[num stringByAppendingFormat:@"%d",[_mypicker4 selectedRowInComponent:0]%10];
     randomNum=[num retain];
     _labelText.text=num;
+    [[AppDelegate shareAppDelegate] takeScreenShotWithView:self.view];
+    _saveBtn.enabled=YES;
 }
 -(int)getRandomNumber:(int)from to:(int)to {
     
@@ -174,6 +181,7 @@
     [_practisebtn release];
     [_viewPicker release];
     [_overLayer release];
+    [_saveBtn release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -186,6 +194,7 @@
     [self setPractisebtn:nil];
     [self setViewPicker:nil];
     [self setOverLayer:nil];
+    [self setSaveBtn:nil];
     [super viewDidUnload];
 }
 #pragma mark -action
@@ -194,7 +203,8 @@
     [self autoscroll];
     _clearbtn.enabled=NO;
     _practisebtn.enabled=YES;
-     _overLayer.hidden=NO;
+    _overLayer.hidden=NO;
+
 }
 
 - (IBAction)clearPress:(id)sender {
@@ -204,10 +214,14 @@
 - (IBAction)practisePress:(id)sender {
     _overLayer.hidden=YES;
     _clearbtn.enabled=YES;
-        [self clearPadLock];
+    [self clearPadLock];
 }
 - (IBAction)settingPress:(id)sender {
     
     [[AppDelegate shareAppDelegate] addSetting];
+}
+
+- (IBAction)savePress:(id)sender {
+        [[AppDelegate shareAppDelegate]addActionSheet];
 }
 @end

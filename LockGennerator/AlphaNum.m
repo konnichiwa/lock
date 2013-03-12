@@ -41,9 +41,13 @@
     }
     _pracBtn.enabled=NO;
     _clearBtn.enabled=NO;
+    _savebtn.enabled=NO;
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [AppDelegate shareAppDelegate].index=3;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -95,7 +99,9 @@
     for (UIButton *btn in _btnNum) {
         btn.enabled=NO;
     }
-_clearBtn.enabled=NO;
+    _clearBtn.enabled=NO;
+    _savebtn.enabled=YES;
+    [[AppDelegate shareAppDelegate] takeScreenShotWithView:self.view];
 }
 
 
@@ -106,18 +112,22 @@ _clearBtn.enabled=NO;
     for (UIButton *btn in _btnNum) {
         btn.enabled=YES;
     }
- _clearBtn.enabled=YES;
+    _clearBtn.enabled=YES;
     
 }
 
 - (IBAction)clearPress:(id)sender {
     resutlStr=@"";
     _textLabel.text=@"";
-
+    
 }
 - (IBAction)settingPress:(id)sender {
     
     [[AppDelegate shareAppDelegate] addSetting];
+}
+- (IBAction)savePress:(id)sender {
+    
+    [[AppDelegate shareAppDelegate]addActionSheet];
 }
 - (void)dealloc {
     [_textLabel release];
@@ -125,6 +135,7 @@ _clearBtn.enabled=NO;
     [_geneBtn release];
     [_pracBtn release];
     [_clearBtn release];
+    [_savebtn release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -133,6 +144,7 @@ _clearBtn.enabled=NO;
     [self setGeneBtn:nil];
     [self setPracBtn:nil];
     [self setClearBtn:nil];
+    [self setSavebtn:nil];
     [super viewDidUnload];
 }
 @end

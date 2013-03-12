@@ -11,10 +11,17 @@
 #import "PadLock.h"
 #import "Pattern.h"
 #import "AlphaNum.h"
+#include <QuartzCore/QuartzCore.h>
 
 @implementation AppDelegate
 @synthesize tabbarView;
 @synthesize isIpad;
+@synthesize screenShot1;
+@synthesize screenShot2;
+@synthesize screenShot3;
+@synthesize screenShot4;
+@synthesize index;
+@synthesize picker;
 - (void)dealloc
 {
     [_window release];
@@ -40,7 +47,7 @@
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         isIpad=NO;
-
+        
     } else {
         isIpad=YES;
     }
@@ -61,7 +68,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -127,20 +134,148 @@
 }
 -(void)addSetting
 {
-    Setting *setting=[[Setting alloc] initWithNibName:@"Setting" bundle:nil];
+    Setting *setting=[[[Setting alloc] initWithNibName:@"Setting" bundle:nil] autorelease];
     UINavigationController *ncSetting=[[UINavigationController alloc] initWithRootViewController:setting];
-    [self.window addSubview:ncSetting.topViewController.view];
+    ncSetting.navigationBarHidden=YES;
+    [self.window addSubview:ncSetting.view];
     CGRect frame=ncSetting.topViewController.view.frame;
     frame.origin.x=frame.size.width;
+    frame.origin.y=0;
     ncSetting.topViewController.view.frame=frame;
     frame.origin.x=0;
     [UIView animateWithDuration:0.5
-                          delay:1.0
+                          delay:0
                         options: UIViewAnimationCurveEaseOut
                      animations:^{
                          ncSetting.topViewController.view.frame=frame;
+                         NSLog(@"frame:%@",NSStringFromCGRect(ncSetting.topViewController.view.frame));
                      }
                      completion:^(BOOL finished){
+                     }];
+}
+-(void)addActionSheet{
+    UIActionSheet *actionSheet=[[UIActionSheet alloc] initWithTitle:@"" delegate:(id)self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Save to album" otherButtonTitles:@"SMS",@"Email", nil];
+    [actionSheet showInView:self.tabbarView.view];
+    
+}
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    NSLog(@"action button index:%d",buttonIndex);
+    UIImage *image=[[UIImage alloc] init];
+    switch (index) {
+        case 1:
+            image=self.screenShot1;
+            break;
+        case 2:
+            image= self.screenShot2;
+            break;
+        case 3:
+            image= self.screenShot3;
+            break;
+        case 4:
+            image= self.screenShot4 ;
+            break;
+        default:
+            break;
+    }
+
+switch (buttonIndex) {
+    case 0:
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        break;
+    case 2:
+        [self displayComposerSheetwithImage:image];
+        break;
+    default:
+        break;
+}
+}
+-(void)takeScreenShotWithView:(UIView*)view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+	[self.window.layer renderInContext:UIGraphicsGetCurrentContext()];
+    switch (index) {
+        case 1:
+            self.screenShot1 = UIGraphicsGetImageFromCurrentImageContext();
+            break;
+        case 2:
+            self.screenShot2 = UIGraphicsGetImageFromCurrentImageContext();
+            break;
+        case 3:
+            self.screenShot3 = UIGraphicsGetImageFromCurrentImageContext();
+            break;
+        case 4:
+            self.screenShot4 = UIGraphicsGetImageFromCurrentImageContext();
+            break;
+        default:
+            break;
+    }
+	UIGraphicsEndImageContext();
+}
+-(void)displayComposerSheetwithImage:(UIImage*)image
+{
+    picker = [[MFMailComposeViewController alloc] init];
+    picker.mailComposeDelegate = (id)self;
+    [picker setSubject:@"IntelliLock"];
+    
+    // Attach an image to the email
+    NSData *myData = UIImagePNGRepresentation(image);
+    [picker addAttachmentData:myData mimeType:@"image/png" fileName:@"coolImage.png"];
+    
+    // Fill out the email body text
+    NSString *emailBody = @"IntelliLock";
+    [picker setMessageBody:emailBody isHTML:NO];
+    
+    [self.tabbarView.view addSubview:picker.view];
+    CGRect frame=picker.view.frame;
+    frame.origin.y=self.tabbarView.view.frame.size.height;
+    picker.view.frame=frame;
+    frame.origin.y=0;
+    [UIView animateWithDuration:0.5
+                          delay:0.1
+                        options: UIViewAnimationCurveEaseOut
+                     animations:^{
+                         picker.view.frame=frame;
+                     }
+                     completion:^(BOOL finished){
+                         
+                     }];
+}
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    // Notifies users about errors associated with the interface
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Result: canceled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Result: saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Result: sent");
+            [[[UIAlertView alloc] initWithTitle:@"IntelliLock" message:@"success!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Result: failed");
+            [[[UIAlertView alloc] initWithTitle:@"IntelliLock" message:@"Failed!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+            break;
+        default:
+            NSLog(@"Result: not sent");
+            break;
+    }
+    CGRect frame=picker.view.frame;
+    frame.origin.y=self.tabbarView.view.frame.size.height;
+    [UIView animateWithDuration:0.5
+                          delay:0.1
+                        options: UIViewAnimationCurveEaseOut
+                     animations:^{
+                         picker.view.frame=frame;
+                     }
+                     completion:^(BOOL finished){
+                         [picker.view removeFromSuperview];
+                         
                      }];
 }
 @end

@@ -19,10 +19,12 @@
 @property (retain, nonatomic) IBOutlet UIButton *geneBtn;
 @property (retain, nonatomic) IBOutlet UIButton *pracBtn;
 @property (retain, nonatomic) IBOutlet UIButton *clearBtn;
+@property (retain, nonatomic) IBOutlet UIButton *savebtn;
 
 - (IBAction)btnPress:(id)sender;
 - (IBAction)geneCode:(id)sender;
 - (IBAction)practisePress:(id)sender;
 - (IBAction)clearPress:(id)sender;
 - (IBAction)settingPress:(id)sender ;
+- (IBAction)savePress:(id)sender;
 @end

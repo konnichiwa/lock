@@ -21,10 +21,12 @@
 @property (retain, nonatomic) IBOutlet UIPickerView *mypicker3;
 @property (retain, nonatomic) IBOutlet UIButton *clearbtn;
 @property (retain, nonatomic) IBOutlet UIButton *practisebtn;
+@property (retain, nonatomic) IBOutlet UIButton *saveBtn;
 @property (retain, nonatomic) IBOutlet UIPickerView *mypicker4;
 @property (retain, nonatomic) IBOutlet UIView *overLayer;
 - (IBAction)genePress:(id)sender;
 - (IBAction)clearPress:(id)sender;
 - (IBAction)practisePress:(id)sender;
 - (IBAction)settingPress:(id)sender ;
+- (IBAction)savePress:(id)sender;
 @end

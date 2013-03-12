@@ -21,11 +21,13 @@
 @property (retain, nonatomic) IBOutletCollection(UIButton) NSArray *numBtn;
 @property (retain, nonatomic) IBOutlet UIButton *praBtn;
 @property (retain, nonatomic) IBOutlet UIButton *clearbtn;
+@property (retain, nonatomic) IBOutlet UIButton *savebtn;
 
 - (IBAction)numPress:(id)sender;
 - (IBAction)generatePress:(id)sender;
 - (IBAction)practisePress:(id)sender;
 - (IBAction)clearPress:(id)sender;
 - (IBAction)settingPress:(id)sender;
+- (IBAction)savePress:(id)sender;
 
 @end

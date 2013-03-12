@@ -8,6 +8,7 @@
 
 #import "FourDigital.h"
 #import "AppDelegate.h"
+#include <QuartzCore/QuartzCore.h>
 @interface FourDigital ()
 
 @end
@@ -40,10 +41,14 @@
     resutlStr=@"";
         [resutlStr retain];
     enableInput=NO;
+    
     [self disableWhenHasNotCode];
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [AppDelegate shareAppDelegate].index=1;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -76,6 +81,7 @@
     for (UIButton *btn in _numBtn) {
         btn.enabled=NO;
     }
+    _savebtn.enabled=YES;
     _clearbtn.enabled=NO;
     [self showRandum];
 }
@@ -85,6 +91,7 @@
     [_numBtn release];
     [_praBtn release];
     [_clearbtn release];
+    [_savebtn release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -93,8 +100,10 @@
     [self setNumBtn:nil];
     [self setPraBtn:nil];
     [self setClearbtn:nil];
+    [self setSavebtn:nil];
     [super viewDidUnload];
 }
+#pragma mark- action
 - (IBAction)practisePress:(id)sender {
     enableInput=YES;
     resutlStr=@"";
@@ -115,12 +124,20 @@
     [[AppDelegate shareAppDelegate] addSetting];
 }
 
+- (IBAction)savePress:(id)sender {
+    
+    [[AppDelegate shareAppDelegate]addActionSheet];
+}
+
+#pragma mark- other
 -(void)showRandum
 {
     
     r = arc4random() % 10000;
     _numText.text=[NSString stringWithFormat:@"%4.4d",r];
     _practisePress.enabled=YES;
+    [[AppDelegate shareAppDelegate] takeScreenShotWithView:self.view];
+
 }
 -(void)disableWhenHasNotCode
 {
@@ -129,5 +146,6 @@
     }
     _praBtn.enabled=NO;
     _clearbtn.enabled=NO;
+    _savebtn.enabled=NO;
 }
 @end

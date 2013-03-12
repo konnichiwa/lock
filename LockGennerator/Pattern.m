@@ -48,13 +48,17 @@
     isDisable=YES;
     _practiseBtn.enabled=NO;
     _clearBtn.enabled=NO;
+    _saveBtn.enabled=NO;
     for (UIImageView *image in imageDotTemp) {
         [image setImage:[UIImage imageNamed:@"pad_off"]];
         [image setHighlightedImage:[UIImage imageNamed:@"pad_on"]];
     }
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [AppDelegate shareAppDelegate].index=2;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -72,6 +76,7 @@
     [_imageDot9 release];
     [_practiseBtn release];
     [_clearBtn release];
+    [_saveBtn release];
     [super dealloc];
 }
 - (void)viewDidUnload {
@@ -81,6 +86,7 @@
     [self setImageDot9:nil];
     [self setPractiseBtn:nil];
     [self setClearBtn:nil];
+    [self setSaveBtn:nil];
     [super viewDidUnload];
 }
 #pragma mark- touch even
@@ -323,6 +329,7 @@ tt1:;
     randomPatern=@"";
     _practiseBtn.enabled=YES;
     _clearBtn.enabled=NO;
+    _saveBtn.enabled=YES;
     NSMutableArray *randomarr=[[NSMutableArray alloc] initWithArray:[self createRandom]];
         [self writeaPattern:randomarr];
     for (NSString *str in randomarr) {
@@ -331,6 +338,7 @@ tt1:;
     [randomPatern retain];
     NSLog(@"random stringggggg :%@",randomPatern);
     [randomarr release];
+    [[AppDelegate shareAppDelegate] takeScreenShotWithView:self.view];
 }
 
 - (IBAction)practisePress:(id)sender {
@@ -348,5 +356,9 @@ tt1:;
 - (IBAction)settingPress:(id)sender {
     
     [[AppDelegate shareAppDelegate] addSetting];
+}
+- (IBAction)savePress:(id)sender {
+    
+    [[AppDelegate shareAppDelegate]addActionSheet];
 }
 @end

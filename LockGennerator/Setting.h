@@ -11,4 +11,6 @@
 @interface Setting : UIViewController
 
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
+- (IBAction)savePress:(id)sender;
+- (IBAction)backPress:(id)sender;
 @end
