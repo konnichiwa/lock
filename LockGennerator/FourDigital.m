@@ -38,6 +38,7 @@
     //    [self showRandum];
     r=99999;
     resutlStr=@"";
+        [resutlStr retain];
     enableInput=NO;
     [self disableWhenHasNotCode];
     // Do any additional setup after loading the view from its nib.
@@ -51,8 +52,9 @@
 
 - (IBAction)numPress:(id)sender {
     UIButton *btn=(UIButton*)sender;
+
     if ([resutlStr length]<4) {
-        resutlStr=[resutlStr stringByAppendingFormat:@"%d",btn.tag];
+        resutlStr=[[resutlStr stringByAppendingFormat:@"%d",btn.tag] retain];
         _numText.text=resutlStr;
     }
     if ([resutlStr length]==4) {

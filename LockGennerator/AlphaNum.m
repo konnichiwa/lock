@@ -70,7 +70,7 @@
 - (IBAction)btnPress:(id)sender {
     UIButton *btn=(UIButton*)sender;
     NSString *acciiTostr=[NSString stringWithFormat:@"%c",btn.tag];
-    resutlStr=[resutlStr stringByAppendingFormat:@"%@",acciiTostr];
+    resutlStr=[[resutlStr stringByAppendingFormat:@"%@",acciiTostr] retain];
     NSLog(@"result text:%@ and r:%@",resutlStr,rcode);
     _textLabel.text=resutlStr;
     if (([resutlStr length]>=6)&&([resutlStr length]<=12)) {
