@@ -23,7 +23,7 @@
             self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
         }
     } else {
-        
+          self = [super initWithNibName:[NSString stringWithFormat:@"%@_ipad",nibNameOrNil] bundle:nibBundleOrNil];
     }
     if (self) {
         // Custom initialization
@@ -38,6 +38,12 @@
     _clearbtn.enabled=NO;
     _practisebtn.enabled=NO;
     _saveBtn.enabled=NO;
+//    if ([AppDelegate shareAppDelegate].isIpad) {
+//        CGAffineTransform t0 = CGAffineTransformMakeTranslation (0, 0);
+//        CGAffineTransform s0 = CGAffineTransformMakeScale (1.0, 1.2);
+//        CGAffineTransform t1 = CGAffineTransformMakeTranslation (0, -10);
+//        _mypicker1.transform = CGAffineTransformConcat(t0, CGAffineTransformConcat(s0, t1));
+//    }
     [_mypicker1 selectRow:500 inComponent:0 animated:YES];
     [_mypicker2 selectRow:500 inComponent:0 animated:YES];
     [_mypicker3 selectRow:500 inComponent:0 animated:YES];
@@ -68,6 +74,9 @@
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component
 {
+    if ([AppDelegate shareAppDelegate].isIpad) {
+         return 66.0;
+    }
     return 50.0;
 }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSUInteger)row inComponent:(NSUInteger)component {
