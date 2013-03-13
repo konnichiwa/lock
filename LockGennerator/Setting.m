@@ -36,6 +36,8 @@
 {
     [super viewDidLoad];
     _scrollView.contentSize=CGSizeMake(320, 568);
+    [[AppDelegate shareAppDelegate].socialActivity twitterInit];
+    self.wantsFullScreenLayout = YES;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -70,5 +72,25 @@
                      completion:^(BOOL finished){
                          [self.navigationController.view removeFromSuperview];
                      }];
+}
+
+- (IBAction)shareFBPress:(id)sender {
+    
+    [[AppDelegate shareAppDelegate].socialActivity  postToFacebookWithTitle:@"lock gennerator test"];
+}
+
+- (IBAction)shareTwitterPress:(id)sender {
+    [AppDelegate shareAppDelegate].socialActivity.viewcontroller=self;
+        [[AppDelegate shareAppDelegate].socialActivity  shareTwitterText:@"lock gennerator test"];
+}
+
+- (IBAction)shareSMSPress:(id)sender {
+    [AppDelegate shareAppDelegate].socialActivity.viewcontroller=self;
+    [[AppDelegate shareAppDelegate].socialActivity  sendSMSWithNumber:@"" WithBody:@"lock gennerator test"];
+}
+
+- (IBAction)shareEmailPress:(id)sender {
+    [AppDelegate shareAppDelegate].socialActivity.viewcontroller=self;
+    [[AppDelegate shareAppDelegate].socialActivity displayComposerSheetwithtext:@"lock gennerator test"];
 }
 @end

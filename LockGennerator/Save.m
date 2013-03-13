@@ -38,6 +38,11 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+  [AppDelegate shareAppDelegate].listImage=[[AppDelegate shareAppDelegate] findFiles:@"png"];
+    NSLog(@"list image:%@",[AppDelegate shareAppDelegate].listImage);
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -60,7 +65,7 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 15;
+    return [[AppDelegate shareAppDelegate].listImage count];
 }
 - (UITableViewCell*)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *indentifier = @"SaveCell";
@@ -81,8 +86,17 @@
                 cell = (Savecell *)oneObject;
             }
     }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        
+        UIImage *image = [UIImage imageWithContentsOfFile:[[AppDelegate shareAppDelegate].listImage objectAtIndex:indexPath.row]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.picture.image=image;
 
-    return cell;
+        });
+        
+    });
+        return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

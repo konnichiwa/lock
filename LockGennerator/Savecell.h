@@ -10,4 +10,6 @@
 
 @interface Savecell : UITableViewCell
 
+@property (retain, nonatomic) IBOutlet UIImageView *picture;
+@property (retain, nonatomic) IBOutlet UILabel *nametext;
 @end

@@ -22,6 +22,9 @@
 @synthesize screenShot4;
 @synthesize index;
 @synthesize picker;
+@synthesize socialActivity;
+@synthesize alert1;
+@synthesize listImage,numImage;
 - (void)dealloc
 {
     [_window release];
@@ -51,6 +54,11 @@
     } else {
         isIpad=YES;
     }
+    socialActivity=[[SocialActivity alloc] init];
+    alert1 = [[AlertManager alloc] init:self];
+    
+    self.listImage=[self findFiles:@"png"];
+    numImage=[listImage count];
     [self setupTabbarDidLogin];
     CGRect frame=tabbarView.view.frame;
     frame.origin.y=-20;
@@ -86,7 +94,30 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-#pragma setup tabbar
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [socialActivity._facebook handleOpenURL:url];
+}
+#pragma mark - image history
+-(NSMutableArray *)findFiles:(NSString *)extension{
+    
+    NSMutableArray *matches = [[NSMutableArray alloc]init];
+    NSFileManager *fManager = [NSFileManager defaultManager];
+    NSString *item;
+    NSArray *contents = [fManager contentsOfDirectoryAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] error:nil];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    // >>> this section here adds all files with the chosen extension to an array
+    for (item in contents){
+        if ([[item pathExtension] isEqualToString:extension]) {
+            [matches addObject:[documentsDirectory stringByAppendingPathComponent:
+                                item]];
+        }
+    }
+    return matches;
+}
+#pragma mark-setup tabbar
 -(void)setupTabbarDidLogin
 {
     GTabTabItem *tabItem1;
@@ -132,6 +163,7 @@
     
     
 }
+#pragma mark -add view
 -(void)addSetting
 {
     Setting *setting=[[[Setting alloc] initWithNibName:@"Setting" bundle:nil] autorelease];
@@ -143,7 +175,7 @@
     frame.origin.y=0;
     ncSetting.topViewController.view.frame=frame;
     frame.origin.x=0;
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.3
                           delay:0
                         options: UIViewAnimationCurveEaseOut
                      animations:^{
@@ -182,7 +214,7 @@
 
 switch (buttonIndex) {
     case 0:
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        [self saveImage:image];
         break;
     case 2:
         [self displayComposerSheetwithImage:image];
@@ -213,6 +245,8 @@ switch (buttonIndex) {
     }
 	UIGraphicsEndImageContext();
 }
+
+#pragma mark-mailViewcontroller
 -(void)displayComposerSheetwithImage:(UIImage*)image
 {
     picker = [[MFMailComposeViewController alloc] init];
@@ -277,5 +311,19 @@ switch (buttonIndex) {
                          [picker.view removeFromSuperview];
                          
                      }];
+}
+- (void)saveImage: (UIImage*)image
+{
+    if (image != nil)
+    {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                          [NSString stringWithFormat:@"Picture_%d.png",numImage]];
+        numImage++;
+        NSData* data = UIImagePNGRepresentation(image);
+        [data writeToFile:path atomically:YES];
+    }
 }
 @end

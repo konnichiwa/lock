@@ -10,6 +10,8 @@
 #import "GTabBar.h"
 #import "Setting.h"
 #import <MessageUI/MFMailComposeViewController.h>
+#import "SocialActivity.h"
+#import "AlertManager.h"
 @class ViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -22,12 +24,16 @@
 @property (strong, nonatomic) UIImage *screenShot2;
 @property (strong, nonatomic) UIImage *screenShot3;
 @property (strong, nonatomic) UIImage *screenShot4;
-
+@property (nonatomic, retain) SocialActivity *socialActivity;
+@property (retain, nonatomic) AlertManager *alert1;
 @property (assign, nonatomic) BOOL isIpad;
+@property (assign, nonatomic) NSInteger numImage;
+@property (strong, nonatomic) NSMutableArray *listImage;
 @property (assign, nonatomic) NSInteger index;
 + (AppDelegate *)shareAppDelegate;
 - (BOOL)isTall;
 -(void)addSetting;
 -(void)addActionSheet;
 -(void)takeScreenShotWithView:(UIView*)view;
+-(NSMutableArray *)findFiles:(NSString *)extension;
 @end

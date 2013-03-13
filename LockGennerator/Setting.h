@@ -13,4 +13,8 @@
 @property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
 - (IBAction)savePress:(id)sender;
 - (IBAction)backPress:(id)sender;
+- (IBAction)shareFBPress:(id)sender;
+- (IBAction)shareTwitterPress:(id)sender;
+- (IBAction)shareSMSPress:(id)sender;
+- (IBAction)shareEmailPress:(id)sender;
 @end

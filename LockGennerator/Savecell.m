@@ -26,4 +26,9 @@
     // Configure the view for the selected state
 }
 
+- (void)dealloc {
+    [_picture release];
+    [_nametext release];
+    [super dealloc];
+}
 @end
