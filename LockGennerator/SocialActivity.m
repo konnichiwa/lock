@@ -8,8 +8,8 @@
 
 #import "SocialActivity.h"
 #import "AppDelegate.h"
-#define FACEBOOK_APP_ID @"148316468655676"
-#define FACEBOOK_APP_SECRET @"a6e63fdaa9cb346eeafc5d10a2b08654"
+#define FACEBOOK_APP_ID @"343988909045979"
+#define FACEBOOK_APP_SECRET @"a661312f93dcc5c0b5a761ee03adacd0"
 #define kOAuthConsumerKey @"YkmYEAHkTwDaNyLS95xjBg"		//REPLACE ME
 #define kOAuthConsumerSecret @"6W7ZjU4FxMu0TAj4dH0dhxyMGJFZwSWsnuCRkoL0h7A"		//REPLACE ME
 
