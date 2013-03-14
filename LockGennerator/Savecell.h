@@ -12,4 +12,7 @@
 
 @property (retain, nonatomic) IBOutlet UIImageView *picture;
 @property (retain, nonatomic) IBOutlet UILabel *nametext;
+@property (retain, nonatomic) IBOutlet UILabel *dateText;
+@property (retain, nonatomic) IBOutlet UILabel *timeText;
+@property (retain, nonatomic) IBOutlet UILabel *sizeText;
 @end

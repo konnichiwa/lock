@@ -9,6 +9,7 @@
 #import "Setting.h"
 #import "AppDelegate.h"
 #import "Save.h"
+#define APP_ID_ITUNE @"569494971" //it will be replaced when self app invalid appstore
 @interface Setting ()
 
 @end
@@ -36,7 +37,7 @@
 {
     [super viewDidLoad];
     _scrollView.contentSize=CGSizeMake(320, 568);
-    [[AppDelegate shareAppDelegate].socialActivity twitterInit];
+
     self.wantsFullScreenLayout = YES;
     // Do any additional setup after loading the view from its nib.
 }
@@ -46,7 +47,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+      [[AppDelegate shareAppDelegate].socialActivity twitterInit]; 
+}
 - (void)dealloc {
     [_scrollView release];
     [super dealloc];
@@ -55,6 +59,13 @@
     [self setScrollView:nil];
     [super viewDidUnload];
 }
+-(void)rateWithAppId:(NSString*)appId
+{
+    NSString* url = [NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", appId];
+    [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
+}
+
+#pragma mark-action
 - (IBAction)savePress:(id)sender {
     Save *save=[[[Save alloc] initWithNibName:@"Save" bundle:nil] autorelease];
     [self.navigationController pushViewController:save animated:YES];
@@ -92,5 +103,15 @@
 - (IBAction)shareEmailPress:(id)sender {
     [AppDelegate shareAppDelegate].socialActivity.viewcontroller=self;
     [[AppDelegate shareAppDelegate].socialActivity displayComposerSheetwithtext:@"lock gennerator test"];
+}
+
+- (IBAction)ratePress:(id)sender {
+    [self rateWithAppId:APP_ID_ITUNE];
+}
+
+- (IBAction)giftAppPress:(id)sender {
+    NSString *GiftAppURL = [NSString stringWithFormat:@"itms-appss://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/giftSongsWizard?gift=1&salableAdamId=%@&productType=C&pricingParameter=STDQ&mt=8&ign-mscache=1",APP_ID_ITUNE];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:GiftAppURL]];
 }
 @end

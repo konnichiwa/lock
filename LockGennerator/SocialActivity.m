@@ -106,8 +106,9 @@
 }
 - (void)postToFacebookWithTitle:(NSString*)title{
     strTemp=title;
-    [[AppDelegate shareAppDelegate].alert1 showAlertLoading:@"Processing..Please wait!"];
+    
     if ([_facebook isSessionValid]) {
+        [[AppDelegate shareAppDelegate].alert1 showAlertLoading:@"Processing..Please wait!"];
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                        [NSString stringWithFormat:@"%@ \n %@",title,[NSDate date]], @"message"
                                        ,nil];

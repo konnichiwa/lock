@@ -7,7 +7,7 @@
 //
 
 #import "DrawPatternLockView.h"
-
+#import "AppDelegate.h"
 @implementation DrawPatternLockView
 
 
@@ -31,7 +31,13 @@
 //    return;
 
   CGContextRef context = UIGraphicsGetCurrentContext();
-  CGContextSetLineWidth(context, 25.0);
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+          CGContextSetLineWidth(context, 25.0);
+        
+    } else {
+          CGContextSetLineWidth(context, 50.0);
+    }
+
   CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
   CGFloat components[] = {0.5, 0.5, 0.5, 0.8};
   CGColorRef color = CGColorCreate(colorspace, components);

@@ -29,6 +29,9 @@
 - (void)dealloc {
     [_picture release];
     [_nametext release];
+    [_dateText release];
+    [_timeText release];
+    [_sizeText release];
     [super dealloc];
 }
 @end

@@ -17,4 +17,6 @@
 - (IBAction)shareTwitterPress:(id)sender;
 - (IBAction)shareSMSPress:(id)sender;
 - (IBAction)shareEmailPress:(id)sender;
+- (IBAction)ratePress:(id)sender;
+- (IBAction)giftAppPress:(id)sender;
 @end

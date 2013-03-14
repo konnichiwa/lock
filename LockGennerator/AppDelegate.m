@@ -25,6 +25,7 @@
 @synthesize socialActivity;
 @synthesize alert1;
 @synthesize listImage,numImage;
+@synthesize currentImage;
 - (void)dealloc
 {
     [_window release];
@@ -175,7 +176,7 @@
     frame.origin.y=0;
     ncSetting.topViewController.view.frame=frame;
     frame.origin.x=0;
-    [UIView animateWithDuration:0.3
+    [UIView animateWithDuration:0.5
                           delay:0
                         options: UIViewAnimationCurveEaseOut
                      animations:^{
@@ -211,17 +212,35 @@
         default:
             break;
     }
-
+    currentImage=image;
 switch (buttonIndex) {
     case 0:
         [self saveImage:image];
         break;
     case 2:
         [self displayComposerSheetwithImage:image];
+                break;
+    case 1:
+    { UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"Send Image" message:@"Choosing Ok will open your Messages App. After selecting your contact, tap the text box once and select paste." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
+        alerView.tag = ALERT_TAG_SEND_IMAGE;
+        [alerView show];
+        [alerView release];
+    }
         break;
     default:
         break;
+        
+
 }
+}
+#pragma mark - UIAlerviewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (alertView.tag==ALERT_TAG_SEND_IMAGE) {
+        if (buttonIndex==0) {
+            [self sendSMSWithImage:currentImage];
+        }
+    }
 }
 -(void)takeScreenShotWithView:(UIView*)view
 {
@@ -325,5 +344,16 @@ switch (buttonIndex) {
         NSData* data = UIImagePNGRepresentation(image);
         [data writeToFile:path atomically:YES];
     }
+}
+- (void)sendSMSWithImage:(UIImage*)image {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.persistent = YES;
+    pasteboard.image = image;
+    
+    
+    NSString *phoneToCall = @"sms:";
+    NSString *phoneToCallEncoded = [phoneToCall stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    NSURL *url = [[NSURL alloc] initWithString:phoneToCallEncoded];
+    [[UIApplication sharedApplication] openURL:url];
 }
 @end

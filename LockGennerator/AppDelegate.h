@@ -12,6 +12,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import "SocialActivity.h"
 #import "AlertManager.h"
+#define ALERT_TAG_SEND_IMAGE 1234
 @class ViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -24,6 +25,7 @@
 @property (strong, nonatomic) UIImage *screenShot2;
 @property (strong, nonatomic) UIImage *screenShot3;
 @property (strong, nonatomic) UIImage *screenShot4;
+@property (strong, nonatomic) UIImage *currentImage;
 @property (nonatomic, retain) SocialActivity *socialActivity;
 @property (retain, nonatomic) AlertManager *alert1;
 @property (assign, nonatomic) BOOL isIpad;

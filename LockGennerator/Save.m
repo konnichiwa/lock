@@ -40,8 +40,13 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-  [AppDelegate shareAppDelegate].listImage=[[AppDelegate shareAppDelegate] findFiles:@"png"];
+
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [AppDelegate shareAppDelegate].listImage=[[AppDelegate shareAppDelegate] findFiles:@"png"];
     NSLog(@"list image:%@",[AppDelegate shareAppDelegate].listImage);
+    [_tableView reloadData];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -86,16 +91,37 @@
                 cell = (Savecell *)oneObject;
             }
     }
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        
-        UIImage *image = [UIImage imageWithContentsOfFile:[[AppDelegate shareAppDelegate].listImage objectAtIndex:indexPath.row]];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            cell.picture.image=image;
-
-        });
-        
-    });
+    NSString* path = [[AppDelegate shareAppDelegate].listImage objectAtIndex:indexPath.row];
+    
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+        cell.picture.image=image;
+    NSFileManager* fm = [NSFileManager defaultManager];
+    NSDictionary* attrs = [fm attributesOfItemAtPath:path error:nil];
+    NSArray *temp=[path componentsSeparatedByString:@"/"];
+    cell.nametext.text=[temp lastObject];
+    float sizeMbFile=[[attrs objectForKey:NSFileSize] floatValue]/1024/1024;
+    cell.sizeText.text=[NSString stringWithFormat:@"%0.2fMb",sizeMbFile];
+    NSLog(@"attr of file:%@",attrs);
+    
+    NSDate *dateCreate=[attrs objectForKey:NSFileCreationDate];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterFullStyle];
+    [formatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    //Optionally for time zone converstions
+    [formatter setTimeZone:[NSTimeZone systemTimeZone]];
+    NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [formatter setLocale:usLocale];
+    NSString *stringFromDate = [formatter stringFromDate:dateCreate];
+        NSLog(@"date create:%@",stringFromDate);
+    
+    cell.dateText.text=stringFromDate;
+        [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setDateFormat:@"h:mm a"];
+        NSString *stringFromDate1 = [formatter stringFromDate:dateCreate];
+       cell.timeText.text=stringFromDate1;
+    NSLog(@"date create1:%@",stringFromDate1);
+    [formatter release];
         return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
