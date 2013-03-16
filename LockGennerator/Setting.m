@@ -29,6 +29,7 @@
     }
     if (self) {
         // Custom initialization
+
     }
     return self;
 }
@@ -49,7 +50,7 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-      [[AppDelegate shareAppDelegate].socialActivity twitterInit]; 
+
 }
 - (void)dealloc {
     [_scrollView release];
@@ -93,11 +94,12 @@
 - (IBAction)shareTwitterPress:(id)sender {
     [AppDelegate shareAppDelegate].socialActivity.viewcontroller=self;
         [[AppDelegate shareAppDelegate].socialActivity  shareTwitterText:@"lock gennerator test"];
+    
 }
 
 - (IBAction)shareSMSPress:(id)sender {
-    [AppDelegate shareAppDelegate].socialActivity.viewcontroller=self;
-    [[AppDelegate shareAppDelegate].socialActivity  sendSMSWithNumber:@"" WithBody:@"lock gennerator test"];
+    [self performSelector:@selector(sendSMSdelay) withObject:nil afterDelay:0.3];
+
 }
 
 - (IBAction)shareEmailPress:(id)sender {
@@ -113,5 +115,11 @@
     NSString *GiftAppURL = [NSString stringWithFormat:@"itms-appss://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/giftSongsWizard?gift=1&salableAdamId=%@&productType=C&pricingParameter=STDQ&mt=8&ign-mscache=1",APP_ID_ITUNE];
     
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:GiftAppURL]];
+}
+#pragma mark -performe
+-(void)sendSMSdelay
+{
+        [AppDelegate shareAppDelegate].socialActivity.viewcontroller=self;
+    [[AppDelegate shareAppDelegate].socialActivity  sendSMSWithNumber:@"" WithBody:@"lock gennerator test"];
 }
 @end

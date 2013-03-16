@@ -31,6 +31,15 @@
 
     
 }
+-(id)init
+{
+        self.twitterEngine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate:self] ;
+    self.twitterEngine.consumerKey =kOAuthConsumerKey;
+    self.twitterEngine.consumerSecret = kOAuthConsumerSecret;
+    [self.twitterEngine setClearsCookies:YES];
+    [self.twitterEngine requestRequestToken];
+    return self;
+}
 -(void)twitterInit
 {
     self.twitterEngine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate:self] ;
