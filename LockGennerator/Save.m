@@ -45,7 +45,6 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [AppDelegate shareAppDelegate].listImage=[[AppDelegate shareAppDelegate] findFiles:@"png"];
-    NSLog(@"list image:%@",[AppDelegate shareAppDelegate].listImage);
     [_tableView reloadData];
 }
 - (void)didReceiveMemoryWarning
@@ -92,16 +91,25 @@
             }
     }
     NSString* path = [[AppDelegate shareAppDelegate].listImage objectAtIndex:indexPath.row];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        UIImage *image = [UIImage imageWithContentsOfFile:path];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.picture.image=image;
+        });
+        
+    });
+
     
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
-        cell.picture.image=image;
+        
+    
     NSFileManager* fm = [NSFileManager defaultManager];
     NSDictionary* attrs = [fm attributesOfItemAtPath:path error:nil];
     NSArray *temp=[path componentsSeparatedByString:@"/"];
     cell.nametext.text=[temp lastObject];
     float sizeMbFile=[[attrs objectForKey:NSFileSize] floatValue]/1024/1024;
     cell.sizeText.text=[NSString stringWithFormat:@"%0.2fMb",sizeMbFile];
-    NSLog(@"attr of file:%@",attrs);
     
     NSDate *dateCreate=[attrs objectForKey:NSFileCreationDate];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -113,14 +121,12 @@
     NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
     [formatter setLocale:usLocale];
     NSString *stringFromDate = [formatter stringFromDate:dateCreate];
-        NSLog(@"date create:%@",stringFromDate);
     
     cell.dateText.text=stringFromDate;
         [formatter setDateStyle:NSDateFormatterNoStyle];
     [formatter setDateFormat:@"h:mm a"];
         NSString *stringFromDate1 = [formatter stringFromDate:dateCreate];
        cell.timeText.text=stringFromDate1;
-    NSLog(@"date create1:%@",stringFromDate1);
     [formatter release];
         return cell;
 }
@@ -145,5 +151,22 @@
 
 - (IBAction)backPress:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(UIImage*)thumbImageFromImage:(UIImage*)image
+{
+    UIImage *tempImage = nil;
+    CGSize targetSize = CGSizeMake(50,50);
+    UIGraphicsBeginImageContext(targetSize);
+    
+    CGRect thumbnailRect = CGRectMake(0, 0, 0, 0);
+    thumbnailRect.origin = CGPointMake(0.0,0.0);
+    thumbnailRect.size.width  = targetSize.width;
+    thumbnailRect.size.height = targetSize.height;
+    [image drawInRect:thumbnailRect];
+    tempImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    return tempImage;
 }
 @end

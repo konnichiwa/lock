@@ -26,6 +26,7 @@
 @synthesize alert1;
 @synthesize listImage,numImage;
 @synthesize currentImage;
+@synthesize isDismissModalView;
 - (void)dealloc
 {
     [_window release];
@@ -349,11 +350,46 @@ switch (buttonIndex) {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.persistent = YES;
     pasteboard.image = image;
-    
-    
     NSString *phoneToCall = @"sms:";
     NSString *phoneToCallEncoded = [phoneToCall stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
     NSURL *url = [[NSURL alloc] initWithString:phoneToCallEncoded];
     [[UIApplication sharedApplication] openURL:url];
+//    [self sendSMSWithNumber:nil WithBody:@"test"];
 }
+#pragma mark-SMSViewcontroller
+-(void)sendSMSWithNumber:(NSString*)number WithBody:(NSString*)body
+{
+    SMSController = [[[MFMessageComposeViewController alloc] init] autorelease];
+	if([MFMessageComposeViewController canSendText])
+	{
+		SMSController.body = body;
+		SMSController.recipients = [NSArray arrayWithObjects:number, nil];
+		SMSController.messageComposeDelegate = (id)self;
+        [self.window.rootViewController presentModalViewController:SMSController animated:YES];
+    }
+    
+    
+}
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+	switch (result) {
+		case MessageComposeResultCancelled:
+			NSLog(@"Cancelled");
+			break;
+		case MessageComposeResultFailed:
+			break;
+		case MessageComposeResultSent:
+            
+			break;
+		default:
+			break;
+	}
+    
+    self.isDismissModalView=YES;
+    CGRect frame =self.window.rootViewController.view.frame;
+    [self.window.rootViewController dismissModalViewControllerAnimated:YES];
+    self.window.rootViewController.view.frame=frame;
+    
+}
+
 @end

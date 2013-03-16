@@ -13,6 +13,7 @@
 
 #import "GTabBar.h"
 #import "GTabTabItem.h"
+#import "AppDelegate.h"
 #define kSelectedTab	@"SelectedTAB"
 @implementation GTabBar
 @synthesize tabViewControllers;
@@ -46,8 +47,15 @@
 	[self activateController:tabIndex];
 	[self activateTabItem:tabIndex];
 }
+- (void)viewWillAppear:(BOOL)animated {
+    if ([AppDelegate shareAppDelegate].isDismissModalView) {
+        [AppDelegate shareAppDelegate].isDismissModalView=NO;
+        return;
+    }
+}
 - (void)viewDidAppear:(BOOL)animated {
 	[super viewDidAppear:animated];
+    
 	//Create a view holder to store the tabbar items
 	//add it as a subview
 	[self.view addSubview:tabBarHolder];
