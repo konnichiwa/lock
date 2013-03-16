@@ -25,7 +25,7 @@
         }
     } else {
         self = [super initWithNibName:[NSString stringWithFormat:@"%@_ipad",nibNameOrNil] bundle:nibBundleOrNil];
- 
+        
     }
     if (self) {
         // Custom initialization
@@ -136,29 +136,29 @@
                         from=imageView.center;
                     }
                 }
-        
+                
                 CGPoint to=touched.center;
                 
-            double sincorner=(to.y -from.y)/(sqrt((to.x-from.x)*(to.x-from.x)+(to.y-from.y)*(to.y-from.y)));
-            double corner;
+                double sincorner=(to.y -from.y)/(sqrt((to.x-from.x)*(to.x-from.x)+(to.y-from.y)*(to.y-from.y)));
+                double corner;
                 if (to.x<=from.x) {
                     corner=3.14- asin(sincorner);
                 }
                 else{
                     corner=asin(sincorner);
                 }
-                        [lastDot setHighlightedImage:[UIImage imageNamed:@"pad_indicator"]];
-            lastDot.transform = CGAffineTransformMakeRotation(corner);
-    }
+                [lastDot setHighlightedImage:[UIImage imageNamed:@"pad_indicator"]];
+                lastDot.transform = CGAffineTransformMakeRotation(corner);
+            }
             else return;
-}
-[_paths addObject:[NSNumber numberWithInt:touched.tag]];
-[v addDotView:touched];
-
-UIImageView* iv = (UIImageView*)touched;
-iv.highlighted = YES;
-}
-
+        }
+        [_paths addObject:[NSNumber numberWithInt:touched.tag]];
+        [v addDotView:touched];
+        
+        UIImageView* iv = (UIImageView*)touched;
+        iv.highlighted = YES;
+    }
+    
 }
 
 
@@ -168,10 +168,10 @@ iv.highlighted = YES;
         return;
     }
     [self clearScreen];
-      // pass the output to target action...
+    // pass the output to target action...
     if ([_paths count]!=0){
         result=@"";
-       result=[[self getKey] retain];
+        result=[[self getKey] retain];
         NSLog(@"result string:%@",result);
         if ([result isEqualToString:randomPatern]) {
             [[[UIAlertView alloc] initWithTitle:@"IntelliLock" message:@"You got it right!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
@@ -206,7 +206,7 @@ iv.highlighted = YES;
     for (UIImageView *imageview in imageDotTemp) {
         [imageview setHighlightedImage:[UIImage imageNamed:@"pad_on"]];
         [imageview setHighlighted:NO];
-         imageview.transform = CGAffineTransformMakeRotation(0);
+        imageview.transform = CGAffineTransformMakeRotation(0);
     }
     [v setNeedsDisplay];
 }
@@ -233,15 +233,15 @@ iv.highlighted = YES;
             [dotFrom setHighlightedImage:[UIImage imageNamed:@"pad_indicator"]];
             dotFrom.transform = CGAffineTransformMakeRotation(corner);
             dotFrom.highlighted=YES;
-
+            
         }
         else
         {
-        dotFrom.highlighted=YES;
+            dotFrom.highlighted=YES;
         }
-    
+        
     }
-[v setNeedsDisplay];
+    [v setNeedsDisplay];
     isDisable=YES;
 }
 
@@ -279,9 +279,9 @@ tt:;
         length=[self getRandomNumber:5 to:7];
     }
     else{
-       length=[self getRandomNumber:5 to:9];
+        length=[self getRandomNumber:5 to:9];
     }
-
+    
 tt1:;
     NSMutableArray *arrdot=[[NSMutableArray alloc] initWithCapacity:length];
     for (int i=0; i<length; i++) {
@@ -303,7 +303,7 @@ tt1:;
 #pragma mark-action
 - (IBAction)chooseStyle:(id)sender {
     [self clearScreen];
-        isDisable=YES;
+    isDisable=YES;
     _practiseBtn.enabled=NO;
     _clearBtn.enabled=NO;
     UISegmentedControl *segment=(UISegmentedControl*)sender;
@@ -330,8 +330,8 @@ tt1:;
     _practiseBtn.enabled=YES;
     _clearBtn.enabled=NO;
     _saveBtn.enabled=YES;
-    NSMutableArray *randomarr=[[NSMutableArray alloc] initWithArray:[self createRandom]];
-        [self writeaPattern:randomarr];
+    NSMutableArray *randomarr=[[NSMutableArray alloc] initWithArray:[self createRandomPerformed]];
+    [self writeaPattern:randomarr];
     for (NSString *str in randomarr) {
         randomPatern=[randomPatern stringByAppendingString:str];
     }
@@ -339,6 +339,9 @@ tt1:;
     NSLog(@"random stringggggg :%@",randomPatern);
     [randomarr release];
     [[AppDelegate shareAppDelegate] takeScreenShotWithView:self.view];
+    
+
+    NSLog(@"random:%@",    [self createRandomPerformed]);
 }
 
 - (IBAction)practisePress:(id)sender {
@@ -349,8 +352,8 @@ tt1:;
 
 - (IBAction)clearPress:(id)sender
 {
-//    NSArray *arr=[[NSArray alloc] initWithObjects:@"1",@"2",@"3",@"4",@"5", nil];
-
+    //    NSArray *arr=[[NSArray alloc] initWithObjects:@"1",@"2",@"3",@"4",@"5", nil];
+    
     
 }
 - (IBAction)settingPress:(id)sender {
@@ -360,5 +363,80 @@ tt1:;
 - (IBAction)savePress:(id)sender {
     
     [[AppDelegate shareAppDelegate]addActionSheet];
+}
+-(NSMutableArray*)createRandomPerformed
+{
+    int length;
+    if (isPad9) {
+        length=[self getRandomNumber:5 to:7];
+    }
+    else{
+        length=[self getRandomNumber:5 to:9];
+    }
+    NSMutableArray *allkey=[[NSMutableArray alloc] initWithCapacity:length];
+    NSMutableArray *allArr=[[NSMutableArray alloc] initWithCapacity:length];
+    [allkey addObject:[NSNumber numberWithInt:[self getRandomNumber:1 to:matrixNum*matrixNum]]];
+//    [allkey addObject:[NSNumber numberWithInt:1]];
+    NSLog(@"firstDot:%d",[[allkey lastObject] integerValue]);
+    for (int i=0; i<length-1; i++) {
+        NSMutableArray *arrforKey=[[NSMutableArray alloc] init];
+        int akey=[[allkey objectAtIndex:i] integerValue];
+        //create coordinates to check valid next dot
+        int xp=(akey-1)/matrixNum;
+        int yp=(akey-1)%matrixNum;
+        for (int k=xp-1; k<=xp+1; k++) {
+            if ((k<0)||(k>matrixNum-1)) {
+                continue;
+            }
+            for (int h=yp-1; h<=yp+1; h++) {
+                if ((h<0)||(h>matrixNum-1)||((k==xp)&&(h==yp))) {
+                    continue;
+                }
+                int newDot=k*matrixNum+h+1;
+                //if newDot equal old oldDot then we skip this newDot
+                BOOL sameoldDot=NO;
+                for (NSNumber *testaKey in allkey) {
+                    if (newDot==[testaKey integerValue]) {
+                        sameoldDot=YES;
+                        break;
+                    }
+                }
+                if (!sameoldDot) {
+                [arrforKey addObject:[NSNumber numberWithInt:newDot]];
+                }
+            
+            }
+        }
+    tt:;
+        NSLog(@"arr next:%@",arrforKey);
+    int countOfArrforKey=[arrforKey count];
+    if (countOfArrforKey==0) {
+        [allkey removeLastObject];
+         NSLog(@"all arr1:%@",allArr);
+        arrforKey=[[allArr lastObject] retain];
+        [allArr removeLastObject];
+        i--;
+        if (i<0) {
+            break;
+        }
+        else{
+            goto tt;
+        }
+    }else{
+        int indexToAdd=[self getRandomNumber:0 to:countOfArrforKey-1];
+        NSLog(@"add key:%@",[arrforKey objectAtIndex:indexToAdd]);
+        [allkey addObject:[arrforKey objectAtIndex:indexToAdd]];
+        [arrforKey removeObjectAtIndex:indexToAdd];
+        [allArr addObject:arrforKey];
+        NSLog(@"all arr:%@",allArr);
+        [arrforKey release];
+    }
+}
+    NSMutableArray *result1=[[NSMutableArray alloc] init];
+    for (NSNumber *num in allkey) {
+        [result1 addObject:[NSString stringWithFormat:@"%d",[num integerValue]]];
+    }
+return result1;
+
 }
 @end
