@@ -20,7 +20,7 @@
 
 -(int) fb_init{
     if(!_facebook){
-        _facebook = [[Facebook alloc] initWithAppId:FACEBOOK_APP_ID andDelegate:self];
+        _facebook = [[Facebook alloc] initWithAppId:FACEBOOK_APP_ID andDelegate:(id)self];
     }
     NSLog(@"fb not login, try login now");
     [self fb_login];
@@ -62,7 +62,7 @@
 }
 #pragma mark-get user info facebook
 - (void)getUserInfo:(id)sender {
-    [_facebook requestWithGraphPath:@"me/?fields=picture.type(large),email,first_name,last_name,id" andDelegate:self];
+    [_facebook requestWithGraphPath:@"me/?fields=picture.type(large),email,first_name,last_name,id" andDelegate:(id)self];
 
 
 }
@@ -75,7 +75,7 @@
                                    [NSString stringWithFormat:@"%@ \n %@",strTemp,[NSDate date]], @"message"
                                    ,nil];
     
-    [_facebook requestWithGraphPath:[NSString stringWithFormat:@"me/feed?access_token=%@",_facebook.accessToken] andParams:params andHttpMethod:@"POST" andDelegate:self];
+    [_facebook requestWithGraphPath:[NSString stringWithFormat:@"me/feed?access_token=%@",_facebook.accessToken] andParams:params andHttpMethod:@"POST" andDelegate:(id)self];
 }
 - (void)fbDidNotLogin:(BOOL)cancelled
 {
@@ -122,7 +122,7 @@
                                        [NSString stringWithFormat:@"%@ \n %@",title,[NSDate date]], @"message"
                                        ,nil];
         
-        [_facebook requestWithGraphPath:[NSString stringWithFormat:@"me/feed?access_token=%@",_facebook.accessToken] andParams:params andHttpMethod:@"POST" andDelegate:self];
+        [_facebook requestWithGraphPath:[NSString stringWithFormat:@"me/feed?access_token=%@",_facebook.accessToken] andParams:params andHttpMethod:@"POST" andDelegate:(id)self];
 
     }
     else{

@@ -245,7 +245,7 @@ switch (buttonIndex) {
 }
 -(void)takeScreenShotWithView:(UIView*)view
 {
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+    UIGraphicsBeginImageContextWithOptions(view.frame.size, view.opaque, 0.0);
 	[self.window.layer renderInContext:UIGraphicsGetCurrentContext()];
     switch (index) {
         case 1:
@@ -265,7 +265,6 @@ switch (buttonIndex) {
     }
 	UIGraphicsEndImageContext();
 }
-
 #pragma mark-mailViewcontroller
 -(void)displayComposerSheetwithImage:(UIImage*)image
 {

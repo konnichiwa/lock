@@ -23,8 +23,7 @@
 -(void) linkedInGetInforSuccess:(NSDictionary*)infoAcc;
 @end
 
-@interface SocialActivity : NSObject< FBRequestDelegate, FBDialogDelegate,FBSessionDelegate>
-{
+@interface SocialActivity : NSObject{
     Facebook *_facebook;
     NSArray* _fb_permissions;
     NSInteger fbIndex;

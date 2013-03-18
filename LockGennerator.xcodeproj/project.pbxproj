@@ -421,8 +421,6 @@
 		8C6775F216EF0CBA00DFE3B6 /* Save.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6775F016EF0CBA00DFE3B6 /* Save.m */; };
 		8C6775F316EF0CBA00DFE3B6 /* Save.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C6775F116EF0CBA00DFE3B6 /* Save.xib */; };
 		8C6775F516EF135800DFE3B6 /* Save_iphone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C6775F416EF135700DFE3B6 /* Save_iphone5.xib */; };
-		8C6775FC16EF161400DFE3B6 /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C6775FA16EF161400DFE3B6 /* btn_back.png */; };
-		8C6775FD16EF161400DFE3B6 /* btn_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C6775FB16EF161400DFE3B6 /* btn_back@2x.png */; };
 		8C6775FF16EF178700DFE3B6 /* Save_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C6775FE16EF178600DFE3B6 /* Save_ipad.xib */; };
 		8C67760416EF18C800DFE3B6 /* bg_save~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C67760016EF18C600DFE3B6 /* bg_save~ipad.png */; };
 		8C67760516EF18C800DFE3B6 /* bg_save@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C67760116EF18C700DFE3B6 /* bg_save@2x~ipad.png */; };
@@ -439,6 +437,8 @@
 		8C67761916EF2F5F00DFE3B6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C67761816EF2F5D00DFE3B6 /* MessageUI.framework */; };
 		8C67761C16EF340C00DFE3B6 /* btn_save~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C67761A16EF340900DFE3B6 /* btn_save~ipad.png */; };
 		8C67761D16EF340C00DFE3B6 /* btn_save@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C67761B16EF340B00DFE3B6 /* btn_save@2x~ipad.png */; };
+		8C881E6C16F71CEE00B09DBC /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C881E6A16F71CEE00B09DBC /* btn_back.png */; };
+		8C881E6D16F71CEE00B09DBC /* btn_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C881E6B16F71CEE00B09DBC /* btn_back@2x.png */; };
 		8CD717CC16E88C220086D6DD /* AlphaNum_iphone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */; };
 /* End PBXBuildFile section */
 
@@ -923,8 +923,6 @@
 		8C6775F016EF0CBA00DFE3B6 /* Save.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Save.m; sourceTree = "<group>"; };
 		8C6775F116EF0CBA00DFE3B6 /* Save.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Save.xib; sourceTree = "<group>"; };
 		8C6775F416EF135700DFE3B6 /* Save_iphone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Save_iphone5.xib; sourceTree = "<group>"; };
-		8C6775FA16EF161400DFE3B6 /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back.png; sourceTree = "<group>"; };
-		8C6775FB16EF161400DFE3B6 /* btn_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_back@2x.png"; sourceTree = "<group>"; };
 		8C6775FE16EF178600DFE3B6 /* Save_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Save_ipad.xib; sourceTree = "<group>"; };
 		8C67760016EF18C600DFE3B6 /* bg_save~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_save~ipad.png"; sourceTree = "<group>"; };
 		8C67760116EF18C700DFE3B6 /* bg_save@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_save@2x~ipad.png"; sourceTree = "<group>"; };
@@ -941,6 +939,8 @@
 		8C67761816EF2F5D00DFE3B6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		8C67761A16EF340900DFE3B6 /* btn_save~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_save~ipad.png"; sourceTree = "<group>"; };
 		8C67761B16EF340B00DFE3B6 /* btn_save@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_save@2x~ipad.png"; sourceTree = "<group>"; };
+		8C881E6A16F71CEE00B09DBC /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back.png; sourceTree = "<group>"; };
+		8C881E6B16F71CEE00B09DBC /* btn_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_back@2x.png"; sourceTree = "<group>"; };
 		8CD717CB16E88C220086D6DD /* AlphaNum_iphone5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlphaNum_iphone5.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1143,12 +1143,12 @@
 		0F17E16016E784FC005E843E /* common */ = {
 			isa = PBXGroup;
 			children = (
+				8C881E6A16F71CEE00B09DBC /* btn_back.png */,
+				8C881E6B16F71CEE00B09DBC /* btn_back@2x.png */,
 				8C67761A16EF340900DFE3B6 /* btn_save~ipad.png */,
 				8C67761B16EF340B00DFE3B6 /* btn_save@2x~ipad.png */,
 				8C67761416EF246400DFE3B6 /* btn_save.png */,
 				8C67761516EF246500DFE3B6 /* btn_save@2x.png */,
-				8C6775FA16EF161400DFE3B6 /* btn_back.png */,
-				8C6775FB16EF161400DFE3B6 /* btn_back@2x.png */,
 				0FEB5EBC16EE5D4F00BCA814 /* btn_clear~ipad.png */,
 				0FEB5EBD16EE5D4F00BCA814 /* btn_generate~ipad.png */,
 				0FEB5EBE16EE5D4F00BCA814 /* btn_practise~ipad.png */,
@@ -2071,8 +2071,6 @@
 				8C6775EE16EF0B1B00DFE3B6 /* test_avatar.png in Resources */,
 				8C6775F316EF0CBA00DFE3B6 /* Save.xib in Resources */,
 				8C6775F516EF135800DFE3B6 /* Save_iphone5.xib in Resources */,
-				8C6775FC16EF161400DFE3B6 /* btn_back.png in Resources */,
-				8C6775FD16EF161400DFE3B6 /* btn_back@2x.png in Resources */,
 				8C6775FF16EF178700DFE3B6 /* Save_ipad.xib in Resources */,
 				8C67760416EF18C800DFE3B6 /* bg_save~ipad.png in Resources */,
 				8C67760516EF18C800DFE3B6 /* bg_save@2x~ipad.png in Resources */,
@@ -2189,6 +2187,8 @@
 				0F98085216F0D3A3004F9A5C /* twitter_load.png in Resources */,
 				0F1D878D16F2348300C5F199 /* padNum4~ipad.png in Resources */,
 				0F1D878E16F2348300C5F199 /* padNum4@2x~ipad.png in Resources */,
+				8C881E6C16F71CEE00B09DBC /* btn_back.png in Resources */,
+				8C881E6D16F71CEE00B09DBC /* btn_back@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2312,8 +2312,8 @@
 		0F17E13616E78256005E843E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Thao Nguyen Minh (MPL3WCSWL5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Thao Nguyen Minh (CJ2KDSD4NE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/LockGennerator\"",
@@ -2329,8 +2329,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "82EAFCF0-E446-42B0-98F6-C0EF527AD25E";
+				PROVISIONING_PROFILE = "9258D705-A936-4E42-A88B-7C0333E4A766";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

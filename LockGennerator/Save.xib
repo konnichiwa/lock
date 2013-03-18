@@ -102,6 +102,7 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrame">{{0, 44}, {320, 416}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -119,7 +120,7 @@
 					<object class="IBUIButton" id="196875865">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{8, 4}, {51, 33}}</string>
+						<string key="NSFrame">{{8, 4}, {62, 33}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="175952185"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -127,7 +128,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUINormalTitle">  Back</string>
+						<string key="IBUINormalTitle"> Back</string>
 						<reference key="IBUIHighlightedTitleColor" ref="411329716"/>
 						<reference key="IBUINormalTitleColor" ref="411329716"/>
 						<object class="NSColor" key="IBUINormalTitleShadowColor">
@@ -306,7 +307,7 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="bg_header_setting.png">{320, 44}</string>
 			<string key="bg_save_screen.png">{320, 524}</string>
-			<string key="btn_back.png">{51, 33}</string>
+			<string key="btn_back.png">{62, 33}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1930</string>
 	</data>
