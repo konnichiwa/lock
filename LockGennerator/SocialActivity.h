@@ -15,6 +15,10 @@
 #import "SA_OAuthTwitterEngine.h"
 #import "SA_OAuthTwitterController.h"
 #import <MessageUI/MessageUI.h>
+#if defined(__IPHONE_5_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_5_0
+#import <Twitter/Twitter.h>
+#import <Accounts/Accounts.h>
+#endif
 @protocol SocialDelegate <NSObject>
 
 @optional

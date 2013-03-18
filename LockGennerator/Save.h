@@ -11,6 +11,9 @@
 @interface Save : UIViewController
 
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
+
+@property (retain, nonatomic) IBOutlet UIView *popupView;
 - (IBAction)backPress:(id)sender;
+@property (retain, nonatomic) IBOutlet UIImageView *imageView;
 
 @end

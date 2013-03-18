@@ -27,13 +27,13 @@
     return 1;
     alert = [[AlertManager alloc] init:self];
     strTemp=@"";
-
-
+    
+    
     
 }
 -(id)init
 {
-        self.twitterEngine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate:self] ;
+    self.twitterEngine = [[SA_OAuthTwitterEngine alloc] initOAuthWithDelegate:self] ;
     self.twitterEngine.consumerKey =kOAuthConsumerKey;
     self.twitterEngine.consumerSecret = kOAuthConsumerSecret;
     [self.twitterEngine setClearsCookies:YES];
@@ -63,14 +63,14 @@
 #pragma mark-get user info facebook
 - (void)getUserInfo:(id)sender {
     [_facebook requestWithGraphPath:@"me/?fields=picture.type(large),email,first_name,last_name,id" andDelegate:(id)self];
-
-
+    
+    
 }
 #pragma mark - facebook delegate
 - (void) fbDidLogin {
     
     NSLog(@"Login success");
-        [[AppDelegate shareAppDelegate].alert1 showAlertLoading:@"Processing..Please wait!"];
+    [[AppDelegate shareAppDelegate].alert1 showAlertLoading:@"Processing..Please wait!"];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    [NSString stringWithFormat:@"%@ \n %@",strTemp,[NSDate date]], @"message"
                                    ,nil];
@@ -96,10 +96,10 @@
     [alertView show];
     [alertView release];
     
-
+    
 }
 - (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
-        [[AppDelegate shareAppDelegate].alert1 dismissCurrentAlert];
+    [[AppDelegate shareAppDelegate].alert1 dismissCurrentAlert];
     NSLog(@"Err message: %@", [[error userInfo] objectForKey:@"error_msg"]);
     NSLog(@"Err code: %d", [error code]);
     UIAlertView *alertView = [[UIAlertView alloc]
@@ -123,7 +123,7 @@
                                        ,nil];
         
         [_facebook requestWithGraphPath:[NSString stringWithFormat:@"me/feed?access_token=%@",_facebook.accessToken] andParams:params andHttpMethod:@"POST" andDelegate:(id)self];
-
+        
     }
     else{
         [self signupFacebook];
@@ -146,23 +146,41 @@
 //=============================================================================================================================
 - (void)shareTwitterText:(NSString*)text{
     
-    if (![self.twitterEngine isAuthorized]) {
-        [alert dismissCurrentAlert];
-        UIViewController *twitterAuth = [SA_OAuthTwitterController controllerToEnterCredentialsWithTwitterEngine:self.twitterEngine
-                                                                                                        delegate:(id)self];
-        [viewcontroller presentModalViewController:twitterAuth animated:YES];
-    }
-    else {
-        strTemp=text;
-            [[AppDelegate shareAppDelegate].alert1 showAlertLoading:@"Processing..Please wait!"];
-  [self.twitterEngine sendUpdate:[NSString stringWithFormat:@"%@ %@",text,[NSDate date]]];
-    }
     
+    
+    Class TWTweetComposeViewControllerClass = NSClassFromString(@"TWTweetComposeViewController");
+    
+    if (TWTweetComposeViewControllerClass != nil) {
+        if([TWTweetComposeViewControllerClass respondsToSelector:@selector(canSendTweet)]) {
+            UIViewController *twitterViewController = [[TWTweetComposeViewControllerClass alloc] init];
+            
+            [twitterViewController performSelector:@selector(setInitialText:)
+                                        withObject:text];
+            [self.viewcontroller presentModalViewController:twitterViewController animated:YES];
+            [twitterViewController release];
+        }
+        else {
+        }
+        
+    }else{
+        if (![self.twitterEngine isAuthorized]) {
+            [alert dismissCurrentAlert];
+            UIViewController *twitterAuth = [SA_OAuthTwitterController controllerToEnterCredentialsWithTwitterEngine:self.twitterEngine
+                                                                                                            delegate:(id)self];
+            [viewcontroller presentModalViewController:twitterAuth animated:YES];
+        }
+        else {
+            strTemp=text;
+            [[AppDelegate shareAppDelegate].alert1 showAlertLoading:@"Processing..Please wait!"];
+            [self.twitterEngine sendUpdate:[NSString stringWithFormat:@"%@ %@",text,[NSDate date]]];
+        }
+
+    }
 }
 #pragma mark SA_OAuthTwitterControllerDelegate
 - (void) OAuthTwitterController: (SA_OAuthTwitterController *) controller authenticatedWithUsername: (NSString *) username {
-                [[AppDelegate shareAppDelegate].alert1 showAlertLoading:@"Processing..Please wait!"];
-  [self.twitterEngine sendUpdate:[NSString stringWithFormat:@"%@ %@",strTemp,[NSDate date]]];
+    [[AppDelegate shareAppDelegate].alert1 showAlertLoading:@"Processing..Please wait!"];
+    [self.twitterEngine sendUpdate:[NSString stringWithFormat:@"%@ %@",strTemp,[NSDate date]]];
 }
 
 - (void) OAuthTwitterControllerFailed: (SA_OAuthTwitterController *) controller {
@@ -195,7 +213,7 @@
 #pragma mark-SMSViewcontroller
 -(void)sendSMSWithNumber:(NSString*)number WithBody:(NSString*)body
 {
-  MFMessageComposeViewController*  SMSController = [[[MFMessageComposeViewController alloc] init] autorelease];
+    MFMessageComposeViewController*  SMSController = [[[MFMessageComposeViewController alloc] init] autorelease];
 	if([MFMessageComposeViewController canSendText])
 	{
 		SMSController.body = body;
@@ -209,7 +227,7 @@
 }
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
 {
- 
+    
 	switch (result) {
 		case MessageComposeResultCancelled:
 			NSLog(@"Cancelled");
@@ -222,17 +240,17 @@
 		default:
 			break;
 	}
-
+    
     [self.viewcontroller dismissModalViewControllerAnimated:YES];
-   [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 #pragma mark-mailViewcontroller
 -(void)displayComposerSheetwithtext:(NSString*)text
 {
-  MFMailComposeViewController  *picker = [[MFMailComposeViewController alloc] init];
+    MFMailComposeViewController  *picker = [[MFMailComposeViewController alloc] init];
     picker.mailComposeDelegate = (id)self;
     [picker setSubject:@"IntelliLock"];
-// Fill out the email body text
+    // Fill out the email body text
     NSString *emailBody = text;
     [picker setMessageBody:emailBody isHTML:NO];
     

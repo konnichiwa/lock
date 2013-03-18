@@ -92,9 +92,7 @@
 }
 
 - (IBAction)shareTwitterPress:(id)sender {
-    [AppDelegate shareAppDelegate].socialActivity.viewcontroller=self;
-        [[AppDelegate shareAppDelegate].socialActivity  shareTwitterText:@"lock gennerator test"];
-    
+[self performSelector:@selector(shareTwitterDelay) withObject:nil afterDelay:0.3];
 }
 
 - (IBAction)shareSMSPress:(id)sender {
@@ -121,5 +119,11 @@
 {
         [AppDelegate shareAppDelegate].socialActivity.viewcontroller=self;
     [[AppDelegate shareAppDelegate].socialActivity  sendSMSWithNumber:@"" WithBody:@"lock gennerator test"];
+}
+-(void)shareTwitterDelay
+{
+    [AppDelegate shareAppDelegate].socialActivity.viewcontroller=self;
+    [[AppDelegate shareAppDelegate].socialActivity  shareTwitterText:@"lock gennerator test"];
+    
 }
 @end

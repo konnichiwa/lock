@@ -338,11 +338,18 @@ switch (buttonIndex) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                              NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
+    tt:;
         NSString* path = [documentsDirectory stringByAppendingPathComponent:
                           [NSString stringWithFormat:@"Picture_%d.png",numImage]];
-        numImage++;
+        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+            numImage++;
+            goto tt;
+        }
+        else{
+            numImage++;
         NSData* data = UIImagePNGRepresentation(image);
         [data writeToFile:path atomically:YES];
+        }
     }
 }
 - (void)sendSMSWithImage:(UIImage*)image {

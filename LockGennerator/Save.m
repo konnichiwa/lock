@@ -40,7 +40,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-
+    
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -55,10 +55,14 @@
 
 - (void)dealloc {
     [_tableView release];
+    [_popupView release];
+    [_imageView release];
     [super dealloc];
 }
 - (void)viewDidUnload {
     [self setTableView:nil];
+    [self setPopupView:nil];
+    [self setImageView:nil];
     [super viewDidUnload];
 }
 
@@ -72,15 +76,16 @@
     return [[AppDelegate shareAppDelegate].listImage count];
 }
 - (UITableViewCell*)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *indentifier = @"SaveCell";
+    static NSString *indentifier = @"SaveCell";
     Savecell *cell = (Savecell *)[aTableView dequeueReusableCellWithIdentifier: indentifier];
+    cell=nil;
     if (cell == nil)  {
         NSString *nibname=@"";
         if ([AppDelegate shareAppDelegate].isIpad) {
             nibname=@"Customcell_ipad";
         }
         else{
-             nibname=@"Customcell"; 
+            nibname=@"Customcell";
         }
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:nibname
                                                      owner:self options:nil];
@@ -91,18 +96,35 @@
             }
     }
     NSString* path = [[AppDelegate shareAppDelegate].listImage objectAtIndex:indexPath.row];
+    if ([AppDelegate shareAppDelegate].isIpad) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            UIImage *image = [UIImage imageWithContentsOfFile:path];
+
+           UIImage *thumb=[[self crop:image withFrame:CGRectMake(0, 45, 768, 690)] retain];
+            UIImage *thumb1=[self resizeImage:thumb withFrame:CGRectMake(0, 0, 768, 690)];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.picture.image=thumb1;
+            });
+            
+        });
+    }else
+    {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        
         UIImage *image = [UIImage imageWithContentsOfFile:path];
-        
+        UIImage *thumb=nil;
+        if ([[AppDelegate shareAppDelegate] isTall]) {
+            thumb=[[self crop:image withFrame:CGRectMake(0, 45, 320, 370)] retain];
+        }else{
+        thumb=[[self crop:image withFrame:CGRectMake(0, 45, 320, 320)] retain];
+        }
+        UIImage *thumb1=[self resizeImage:thumb withFrame:CGRectMake(0, 0, 320 , 320)];
         dispatch_async(dispatch_get_main_queue(), ^{
-            cell.picture.image=image;
+            cell.picture.image=thumb1;
         });
         
     });
-
+    }
     
-        
     
     NSFileManager* fm = [NSFileManager defaultManager];
     NSDictionary* attrs = [fm attributesOfItemAtPath:path error:nil];
@@ -123,12 +145,12 @@
     NSString *stringFromDate = [formatter stringFromDate:dateCreate];
     
     cell.dateText.text=stringFromDate;
-        [formatter setDateStyle:NSDateFormatterNoStyle];
+    [formatter setDateStyle:NSDateFormatterNoStyle];
     [formatter setDateFormat:@"h:mm a"];
-        NSString *stringFromDate1 = [formatter stringFromDate:dateCreate];
-       cell.timeText.text=stringFromDate1;
+    NSString *stringFromDate1 = [formatter stringFromDate:dateCreate];
+    cell.timeText.text=stringFromDate1;
     [formatter release];
-        return cell;
+    return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -136,37 +158,102 @@
         return 149;
     }
     else
-    return 86;
+        return 86;
     return 0;
 }
 #pragma mark-
 #pragma mark-selected table
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self showpopupmenu];
+    NSString* path = [[AppDelegate shareAppDelegate].listImage objectAtIndex:indexPath.row];
+    _imageView.image=[UIImage imageWithContentsOfFile:path];
     [_tableView deselectRowAtIndexPath:indexPath animated:YES];
     //The user is selecting the cell which is currently expanded
-   
+    
     
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
 
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSString* path = [[AppDelegate shareAppDelegate].listImage objectAtIndex:indexPath.row];
+        [[NSFileManager defaultManager] removeItemAtPath: path error: nil];
+        [[AppDelegate shareAppDelegate].listImage removeObjectAtIndex:indexPath.row];
+        
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView endUpdates];
+    }
+}
 - (IBAction)backPress:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
--(UIImage*)thumbImageFromImage:(UIImage*)image
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch * touch = [touches anyObject];
+    if ([touch view]==_popupView){
+        [self hidepopupmenu];
+    }
+}
+#pragma mark-show hide popup menu
+-(void)showpopupmenu
 {
-    UIImage *tempImage = nil;
-    CGSize targetSize = CGSizeMake(50,50);
-    UIGraphicsBeginImageContext(targetSize);
+    _popupView.alpha=0;
+    _popupView.frame=self.view.frame;
+    [self.view addSubview:_popupView];
+    [UIView animateWithDuration:0.6
+                          delay:0.1
+                        options: UIViewAnimationCurveEaseOut
+                     animations:^{
+                         _popupView.alpha=1.0;
+                     }
+                     completion:^(BOOL finished){
+                         
+                     }];
     
-    CGRect thumbnailRect = CGRectMake(0, 0, 0, 0);
-    thumbnailRect.origin = CGPointMake(0.0,0.0);
-    thumbnailRect.size.width  = targetSize.width;
-    thumbnailRect.size.height = targetSize.height;
-    [image drawInRect:thumbnailRect];
-    tempImage = UIGraphicsGetImageFromCurrentImageContext();
+}
+-(void)hidepopupmenu
+{
+    [UIView animateWithDuration:0.3
+                          delay:0.1
+                        options: UIViewAnimationCurveEaseOut
+                     animations:^{
+                         _popupView.alpha=0.0;
+                     }
+                     completion:^(BOOL finished){
+                         [_popupView removeFromSuperview];
+                         
+                     }];
     
+}
+#pragma mark-crop image
+- (UIImage *)resizeImage:(UIImage *)oldImage withFrame:(CGRect)frame {
+    UIImage *newImage = oldImage;
+    CGSize itemSize = frame.size;
+    UIGraphicsBeginImageContext(itemSize);
+    CGRect imageRect =frame;
+    [oldImage drawInRect:imageRect];
+    newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return tempImage;
+    return newImage;
+}
+- (UIImage *)crop:(UIImage *)oldImage withFrame:(CGRect)frame {
+    float scale=[UIScreen mainScreen].scale;
+    NSLog(@"scale;%f",scale);
+    CGRect newFrame=CGRectMake(frame.origin.x*scale, frame.origin.y*scale, frame.size.width*scale, frame.size.height*scale);
+      NSLog(@"frame;%@",NSStringFromCGRect(newFrame));
+    // Create a new image in quartz with our new bounds and original ne
+    CGImageRef tmp = CGImageCreateWithImageInRect([oldImage CGImage], newFrame);
+    
+    // Pump our cropped image back into a UIImage object
+    UIImage *newImage = [UIImage imageWithCGImage:tmp];
+    
+    // Be good memory citizens and release the memory
+    CGImageRelease(tmp);
+    return newImage;
 }
 @end

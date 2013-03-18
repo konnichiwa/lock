@@ -38,8 +38,10 @@
 		tabItemsArray = [[NSMutableArray alloc] initWithArray:tbItems];
         CGRect frame=self.view.frame;
         frame.origin.y=frame.size.height-imageBacground.size.height;
+        UIImageView *imageview=[[UIImageView alloc] initWithImage:imageBacground];
         tabBarHolder = [[UIView alloc] initWithFrame:frame];
-        tabBarHolder.backgroundColor = [UIColor colorWithPatternImage:imageBacground];
+        tabBarHolder.backgroundColor = [UIColor clearColor];
+        [tabBarHolder addSubview:imageview];
 	}
     return self;
 }
