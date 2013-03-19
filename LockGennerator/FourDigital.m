@@ -134,7 +134,7 @@
 {
     
     r = arc4random() % 10000;
-    _numText.text=[NSString stringWithFormat:@"%4.4d",r];
+    _numText.text=[[NSString stringWithFormat:@"%4.4d",r] retain];
     _practisePress.enabled=YES;
     [[AppDelegate shareAppDelegate] takeScreenShotWithView:self.view];
 

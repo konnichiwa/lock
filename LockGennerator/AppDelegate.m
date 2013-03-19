@@ -245,7 +245,10 @@ switch (buttonIndex) {
 }
 -(void)takeScreenShotWithView:(UIView*)view
 {
-    UIGraphicsBeginImageContextWithOptions(view.frame.size, view.opaque, 0.0);
+    //hight image
+//    UIGraphicsBeginImageContextWithOptions(view.frame.size, view.opaque, 0.0);
+    //low image
+    UIGraphicsBeginImageContext([UIScreen mainScreen].bounds.size);
 	[self.window.layer renderInContext:UIGraphicsGetCurrentContext()];
     switch (index) {
         case 1:

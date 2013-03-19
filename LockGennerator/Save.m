@@ -243,6 +243,7 @@
 }
 - (UIImage *)crop:(UIImage *)oldImage withFrame:(CGRect)frame {
     float scale=[UIScreen mainScreen].scale;
+    scale=1.0;
     NSLog(@"scale;%f",scale);
     CGRect newFrame=CGRectMake(frame.origin.x*scale, frame.origin.y*scale, frame.size.width*scale, frame.size.height*scale);
       NSLog(@"frame;%@",NSStringFromCGRect(newFrame));
