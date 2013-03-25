@@ -216,7 +216,13 @@
     currentImage=image;
 switch (buttonIndex) {
     case 0:
-        [self saveImage:image];
+    { UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"Save Image" message:@"Please input image name" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
+        alerView.tag = ALERT_TAG_SAVE_IMAGE;
+        [alerView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        [alerView show];
+        [alerView release];
+    }
+
         break;
     case 2:
         [self displayComposerSheetwithImage:image];
@@ -240,6 +246,20 @@ switch (buttonIndex) {
     if (alertView.tag==ALERT_TAG_SEND_IMAGE) {
         if (buttonIndex==0) {
             [self sendSMSWithImage:currentImage];
+        }
+    }
+    if (alertView.tag==ALERT_TAG_SAVE_IMAGE) {
+        UITextField *name = [alertView textFieldAtIndex:0];
+        if (buttonIndex==0) {
+            if (![name.text isEqualToString:@""]) {
+                [self saveImage:currentImage WithName:name.text];
+            }else{
+                UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"Save Image" message:@"Please input image name" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
+                alerView.tag = ALERT_TAG_SAVE_IMAGE;
+                [alerView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+                [alerView show];
+                [alerView release];
+                }
         }
     }
 }
@@ -334,25 +354,17 @@ switch (buttonIndex) {
                          
                      }];
 }
-- (void)saveImage: (UIImage*)image
+- (void)saveImage: (UIImage*)image WithName:(NSString*)name
 {
     if (image != nil)
     {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                              NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
-    tt:;
         NSString* path = [documentsDirectory stringByAppendingPathComponent:
-                          [NSString stringWithFormat:@"Picture_%d.png",numImage]];
-        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-            numImage++;
-            goto tt;
-        }
-        else{
-            numImage++;
+                          [NSString stringWithFormat:@"%@.png",name]];
         NSData* data = UIImagePNGRepresentation(image);
         [data writeToFile:path atomically:YES];
-        }
     }
 }
 - (void)sendSMSWithImage:(UIImage*)image {

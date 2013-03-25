@@ -14,6 +14,7 @@
 #import "AlertManager.h"
 #import <MessageUI/MessageUI.h>
 #define ALERT_TAG_SEND_IMAGE 1234
+#define ALERT_TAG_SAVE_IMAGE 1235
 @class ViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
